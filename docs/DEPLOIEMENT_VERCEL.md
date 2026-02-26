@@ -29,8 +29,8 @@ git commit -m "feat: initial release - NotebookLM Académie"
 # Branche main
 git branch -M main
 
-# Connecter à ton repo GitHub (remplace TON-USERNAME par ton pseudo GitHub)
-git remote add origin https://github.com/TON-USERNAME/notebooklm-academie.git
+# Connecter à ton repo GitHub
+git remote add origin https://github.com/snomis-fr/notebooklm-academie.git
 
 # Pousser
 git push -u origin main

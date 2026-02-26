@@ -19,7 +19,7 @@ export const config = {
   appName: "NotebookLM Académie",
   appUrl: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   appDescription:
-    "La plateforme de référence pour maîtriser Google NotebookLM — du débutant à l'expert.",
+    "La formation de référence pour les fédérations sportives. Maîtrisez NotebookLM pour structurer vos règlements, diffuser le savoir et convaincre les instances des bienfaits de l'IA.",
 
   supabase: {
     url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -48,9 +48,9 @@ export const config = {
 
   /** SEO defaults */
   seo: {
-    defaultTitle: "NotebookLM Académie — Maîtrisez l'IA appliquée à vos connaissances",
+    defaultTitle: "NotebookLM Académie — L'IA au service des fédérations sportives",
     titleTemplate: "%s | NotebookLM Académie",
     defaultDescription:
-      "Apprenez à transformer vos documents en intelligence actionnable avec Google NotebookLM. 3 parcours progressifs, du débutant à l'expert.",
+      "Formation NotebookLM pour les fédérations sportives : règlements, rapports, veille. Convainquez les instances des bienfaits de l'IA ancrée dans vos données.",
   },
 } as const;

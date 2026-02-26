@@ -18,27 +18,27 @@ import { config } from "@/config/app";
 export const metadata = {
   title: "À propos",
   description:
-    "NotebookLM Académie — La plateforme de référence pour maîtriser Google NotebookLM.",
+    "NotebookLM Académie — La formation de référence pour les fédérations sportives.",
 };
 
 const VALUES = [
   {
     icon: Target,
-    title: "Pédagogie actionnable",
+    title: "Pensé pour les fédérations",
     description:
-      "Chaque leçon se termine par une mise en pratique immédiate. Pas de théorie sans exercice.",
+      "Règlements, rapports, comités, clubs — chaque module illustre des cas d'usage du monde du sport.",
   },
   {
     icon: Sparkles,
-    title: "Contenu à jour",
+    title: "Convaincre les instances",
     description:
-      "NotebookLM évolue. Nos parcours sont régulièrement mis à jour pour suivre les nouveautés.",
+      "Démontrez les bienfaits de l'IA ancrée : traçabilité, fiabilité, zéro hallucination. Arguments clés pour les comités.",
   },
   {
     icon: BookOpen,
     title: "Progression structurée",
     description:
-      "Du débutant au créateur multimédia, une courbe d'apprentissage pensée pour la maîtrise.",
+      "De la curation des sources à la production de supports, une formation pensée pour déployer NotebookLM en fédération.",
   },
 ];
 
@@ -74,10 +74,11 @@ export default function AProposPage() {
                   Notre mission
                 </h2>
                 <p className="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">
-                  Rendre l&apos;IA de Google accessible à tous. Que vous soyez
-                  dirigeant, manager, chercheur ou étudiant, NotebookLM peut
-                  transformer votre manière de travailler avec vos documents.
-                  Nous vous guidons pas à pas pour en tirer le meilleur.
+                  Accompagner le monde du sport dans l&apos;adoption de NotebookLM.
+                  Fédérations, ligues, clubs : centralisez règlements et rapports,
+                  diffusez le savoir, convainquez les instances des bienfaits de
+                  l&apos;IA ancrée dans vos données. Une formation gratuite et
+                  actionnable.
                 </p>
               </div>
             </div>
@@ -93,7 +94,7 @@ export default function AProposPage() {
               Nos valeurs
             </h2>
             <p className="mt-2 max-w-2xl text-[var(--color-text-secondary)]">
-              Ce qui guide chaque parcours que nous créons.
+              Ce qui guide notre formation pour les fédérations.
             </p>
           </ScrollReveal>
 

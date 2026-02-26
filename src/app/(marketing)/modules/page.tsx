@@ -11,7 +11,7 @@ import { MODULES } from "@/config/modules";
 export const metadata = {
   title: "Modules",
   description:
-    "1 formation en 4 modules pour maîtriser NotebookLM — de l'architecte de données au maître NotebookLM.",
+    "Formation NotebookLM pour fédérations sportives — 4 modules de la curation à la production de supports.",
 };
 
 export default function ModulesPage() {
@@ -22,11 +22,11 @@ export default function ModulesPage() {
         <div className="hero-gradient-overlay" aria-hidden />
         <div className="relative z-10 mx-auto max-w-4xl text-center">
           <h1 className="font-display text-4xl font-extrabold uppercase leading-tight tracking-tight text-white md:text-6xl">
-            Construisez votre savoir ancré
+            NotebookLM pour les fédérations
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
-            Apprenez à maîtriser le RAG et la curation intelligente.
-            Ne lancez pas un logiciel, construisez votre propre cerveau externe avec NotebookLM.
+            Règlements, rapports, comités — centralisez et diffusez le savoir.
+            Convainquez les instances des bienfaits de l&apos;IA ancrée dans vos données.
           </p>
         </div>
       </section>

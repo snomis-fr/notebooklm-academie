@@ -16,10 +16,10 @@ interface ChiffreItem {
 }
 
 const CHIFFRES: ChiffreItem[] = [
-  { value: 1, suffix: "", label: "formation complète" },
+  { value: 1, suffix: "", label: "formation dédiée aux fédérations" },
   { value: 4, suffix: "", label: "modules progressifs" },
   { value: 12, suffix: "", label: "activités pratiques" },
-  { value: 100, suffix: "%", label: "actionnable" },
+  { value: 100, suffix: "%", label: "gratuit" },
 ];
 
 /**

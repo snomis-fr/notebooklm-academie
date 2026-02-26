@@ -20,9 +20,9 @@ export const MODULES: Module[] = [
     order: 1,
     title: "L'Architecte de Données",
     subtitle: "Les Fondations",
-    objectif: "Maîtriser l'environnement RAG et la curation de sources.",
+    objectif: "Maîtriser le RAG et la curation pour centraliser règlements, rapports et documents fédéraux.",
     description:
-      "Maîtrisez l'environnement RAG et la curation de sources. Apprenez pourquoi NotebookLM n'est pas ChatGPT et comment construire un socle de connaissances inébranlable.",
+      "Centralisez règlements, rapports de commissions et documents officiels dans un carnet unique. Montrez aux instances comment NotebookLM s'appuie sur vos sources — pas sur des hallucinations.",
     icon: "database",
     color: "module-1",
     isFree: true, // Formation gratuite pour tous
@@ -35,14 +35,14 @@ export const MODULES: Module[] = [
         order: 1,
         title: 'La Philosophie du "Source-Grounding" (Pourquoi NotebookLM n\'est pas ChatGPT)',
         description:
-          "Un moteur de vérité basé sur vos données (RAG), pas une IA générative classique.",
+          "Un moteur de vérité basé sur vos données (RAG), pas une IA générative classique. Idéal pour les fédérations : l'IA ne répond qu'à partir de vos règlements et documents officiels.",
         videoUrl: "https://www.youtube.com/watch?v=fztkOgGeerU",
         activities: [
           {
             id: "m1-p1-a1",
             title: "Le test du mensonge",
             description:
-              "Importer un document technique et poser une question dont la réponse n'est pas dans le texte pour voir l'IA refuser de répondre (preuve du Grounding).",
+              "Importer un extrait de règlement fédéral et poser une question hors-sujet : l'IA refuse de répondre. Preuve de fiabilité pour les instances — zéro hallucination.",
             type: "practice",
           },
         ],
@@ -53,13 +53,14 @@ export const MODULES: Module[] = [
         order: 2,
         title: "L'Art de la Curation (Gérer les formats et les limites)",
         description:
-          "PDF, audio, vidéo YouTube — formats supportés et limites.",
+          "PDF, audio, vidéo YouTube — formats supportés. Intégrez règlements, comptes-rendus de réunions, vidéos de formation ou podcasts officiels dans un même carnet.",
+        videoUrl: "https://www.youtube.com/watch?v=-c7OusxP06k",
         activities: [
           {
             id: "m1-p2-a1",
             title: "Le Mixeur de Médias",
             description:
-              "Créer un carnet contenant obligatoirement : 1 PDF, 1 lien YouTube et 1 fichier Audio MP3.",
+              "Créer un carnet fédéral : 1 règlement (PDF), 1 vidéo de formation YouTube et 1 compte-rendu audio. NotebookLM interroge l'ensemble.",
             type: "practice",
           },
         ],
@@ -70,13 +71,14 @@ export const MODULES: Module[] = [
         order: 3,
         title: "L'Interface Tactique (Sources, Chat, Notes)",
         description:
-          "Maîtriser l'interface complète de NotebookLM.",
+          "Maîtriser l'interface complète. Montrez aux comités comment vérifier chaque réponse avec les citations vers les documents sources.",
+        videoUrl: "https://www.youtube.com/watch?v=sICEx_PCWUM",
         activities: [
           {
             id: "m1-p3-a1",
             title: "Le Détective de Citations",
             description:
-              "Poser une question complexe, obtenir la réponse, et cliquer sur 3 citations (les numéros gris) pour surligner la preuve dans le texte original.",
+              "Poser une question réglementaire, obtenir la réponse, et cliquer sur les citations pour tracer la preuve dans le règlement. Argument clé pour convaincre les instances.",
             type: "practice",
           },
         ],
@@ -89,9 +91,9 @@ export const MODULES: Module[] = [
     order: 2,
     title: "Le Spécialiste de la Synthèse",
     subtitle: "L'Analyse",
-    objectif: "Transformer la lecture passive en dialogue actif et structuré.",
+    objectif: "Synthétiser rapports et règlements pour comités, arbitres et clubs.",
     description:
-      "Transformez la lecture passive en dialogue actif et structuré. Maîtrisez le prompting avancé, les outils automatiques et la visualisation.",
+      "Générez des synthèses pour le comité directeur, des FAQ réglementaires pour les clubs, des guides pour les arbitres. NotebookLM structure le savoir fédéral.",
     icon: "brain",
     color: "module-2",
     isFree: true,
@@ -104,13 +106,13 @@ export const MODULES: Module[] = [
         order: 1,
         title: 'Le "Super Prompting" (Rôle + Tâche + Contexte)',
         description:
-          "La formule pour des résultats précis.",
+          "Formule pour des réponses précises. Ex : « Agis comme un formateur d'arbitres et résume les changements réglementaires. »",
         activities: [
           {
             id: "m2-p1-a1",
             title: "Le Jeu de Rôle",
             description:
-              'Utiliser le prompt "Agis comme un contradicteur sceptique" pour challenger les arguments d\'un document importé.',
+              'Challenger un rapport de commission : "Agis comme un dirigeant sceptique et soulève les points faibles." Préparer les réunions de comité.',
             type: "practice",
           },
         ],
@@ -121,13 +123,13 @@ export const MODULES: Module[] = [
         order: 2,
         title: "Les Outils Automatiques (Résumé, FAQ, Chronologie)",
         description:
-          "Génération en un clic.",
+          "Génération en un clic : FAQ réglementaire pour les clubs, chronologie des événements pour les rapports annuels.",
         activities: [
           {
             id: "m2-p2-a1",
             title: "La Génération Instantanée",
             description:
-              "Générer en un clic un Guide d'étude (Study Guide) et un Quiz pour s'auto-évaluer sur ses propres notes.",
+              "Générer en un clic un guide d'étude à partir du règlement fédéral. Idéal pour former arbitres et délégués.",
             type: "practice",
           },
         ],
@@ -138,13 +140,13 @@ export const MODULES: Module[] = [
         order: 3,
         title: "Visualisation et Connexions (Mind Maps)",
         description:
-          "Identifier des thèmes transversaux inattendus.",
+          "Découvrir des liens entre règlements, rapports et projets. Visualiser les connexions pour les présentations en AG.",
         activities: [
           {
             id: "m2-p3-a1",
             title: "La Cartographie",
             description:
-              "Ouvrir le mode Mind Map (carte mentale) sur un corpus de 5 documents pour identifier un thème transversal inattendu.",
+              "Créer une Mind Map à partir des rapports de commissions et du règlement. Identifier les thèmes transversaux pour une AG ou un plan stratégique.",
             type: "practice",
           },
         ],
@@ -157,9 +159,9 @@ export const MODULES: Module[] = [
     order: 3,
     title: "Le Créateur Multimédia",
     subtitle: "La Production",
-    objectif: "Produire des livrables (Audio, Vidéo, Visuels) à partir du savoir brut.",
+    objectif: "Produire podcasts, supports vidéo et visuels pour clubs et formations.",
     description:
-      "Produire des livrables (Audio, Vidéo, Visuels) à partir du savoir brut.",
+      "Générez des podcasts à partir des rapports, des supports vidéo pour les formations des clubs, des visuels pour la communication fédérale.",
     icon: "play-circle",
     color: "module-3",
     isFree: true,
@@ -172,13 +174,13 @@ export const MODULES: Module[] = [
         order: 1,
         title: "L'Audio Overview Interactif (Le Podcast IA)",
         description:
-          "Générer et piloter avec le mode Conversation.",
+          "Générer un podcast à partir de vos documents. Idéal pour résumer les décisions de comité aux clubs ou diffuser les nouveautés réglementaires.",
         activities: [
           {
             id: "m3-p1-a1",
             title: "Le Directeur de Studio",
             description:
-              "Générer un Audio Overview, l'écouter, puis utiliser le mode Conversation pour interrompre les IA et leur demander de changer de sujet ou de focus.",
+              "Générer un podcast à partir d'un compte-rendu de réunion. L'écouter et piloter la conversation pour approfondir un point — format parfait pour les clubs.",
             type: "practice",
           },
         ],
@@ -189,13 +191,13 @@ export const MODULES: Module[] = [
         order: 2,
         title: "La Production Vidéo et Visuelle",
         description:
-          "Créer des vidéos et visuels à partir de vos données.",
+          "Créer des vidéos et visuels pour formations, communication interne et supports clubs.",
         activities: [
           {
             id: "m3-p2-a1",
             title: "Le Producteur Visuel",
             description:
-              "Générer des contenus vidéo et visuels depuis NotebookLM.",
+              "Générer une vidéo explicative à partir du règlement ou d'une circulaire. Réutilisable pour les formations de ligues et clubs.",
             type: "practice",
           },
         ],
@@ -206,13 +208,13 @@ export const MODULES: Module[] = [
         order: 3,
         title: "L'Export et l'Intégration (Vers l'écosystème Google)",
         description:
-          "Docs, Slides, Drive — intégration complète.",
+          "Exporter vers Docs, Slides, Drive. Intégrer NotebookLM au workflow Google Workspace des fédérations.",
         activities: [
           {
             id: "m3-p3-a1",
             title: "L'Intégrateur",
             description:
-              "Connecter NotebookLM à votre workflow Google Workspace.",
+              "Exporter une synthèse vers Google Docs pour la diffuser aux ligues. Publier un support sur Drive pour les clubs.",
             type: "practice",
           },
         ],
@@ -225,9 +227,9 @@ export const MODULES: Module[] = [
     order: 4,
     title: "Le Maître NotebookLM",
     subtitle: "L'Expertise",
-    objectif: "Consolider votre maîtrise avec des cas d'usage avancés et des bonnes pratiques.",
+    objectif: "Déployer NotebookLM en fédération : veille, comités, routines et bonnes pratiques.",
     description:
-      "Consolidez votre maîtrise : cas d'usage avancés, bonnes pratiques et intégration dans vos workflows professionnels.",
+      "Cas d'usage avancés pour fédérations : veille réglementaire, carnets par commission, routines de mise à jour, partage avec les instances.",
     icon: "graduation-cap",
     color: "module-4",
     isFree: true,
@@ -240,13 +242,13 @@ export const MODULES: Module[] = [
         order: 1,
         title: "Cas d'Usage Avancés",
         description:
-          "Résolution de problèmes complexes, recherche multi-sources et workflows récurrents.",
+          "Veille réglementaire, carnets par commission, recherche multi-sources. Construire un carnet stratégique pour le comité directeur.",
         activities: [
           {
             id: "m4-p1-a1",
             title: "Le Projet Réel",
             description:
-              "Construire un carnet complet pour un cas d'usage professionnel (rapport, décision, veille).",
+              "Construire un carnet fédéral complet : règlement, rapports annuels, décisions de comité. Démonstration pour convaincre les instances.",
             type: "practice",
           },
         ],
@@ -257,13 +259,13 @@ export const MODULES: Module[] = [
         order: 2,
         title: "Bonnes Pratiques et Pièges",
         description:
-          "Optimiser la qualité des réponses, gérer les limites et éviter les erreurs courantes.",
+          "Optimiser la qualité des réponses, gérer les limites. Éviter les erreurs courantes lors du déploiement en fédération.",
         activities: [
           {
             id: "m4-p2-a1",
             title: "L'Auditeur",
             description:
-              "Analyser un carnet existant et proposer des améliorations de structure et de curation.",
+              "Auditer un carnet fédéral existant : structure des sources, curation, pertinence pour les instances. Proposer des améliorations.",
             type: "practice",
           },
         ],
@@ -274,13 +276,13 @@ export const MODULES: Module[] = [
         order: 3,
         title: "Intégration dans le Workflow",
         description:
-          "NotebookLM au quotidien : routines, export, partage et évolution des carnets.",
+          "NotebookLM au quotidien en fédération : routines de mise à jour, partage avec les ligues, évolution des carnets par saison.",
         activities: [
           {
             id: "m4-p3-a1",
             title: "Le Routinier",
             description:
-              "Mettre en place une routine hebdomadaire d'alimentation et de mise à jour d'un carnet clé.",
+              "Mettre en place une routine : alimenter le carnet après chaque comité, mettre à jour le règlement à chaque AG. Pérenniser l'usage.",
             type: "practice",
           },
         ],

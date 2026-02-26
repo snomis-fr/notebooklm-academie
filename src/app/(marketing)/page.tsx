@@ -48,20 +48,20 @@ export default function HomePage() {
         <div className="hero-gradient-overlay" aria-hidden />
         <div className="relative z-10 mx-auto max-w-5xl text-center">
           <span className="inline-block rounded border border-violet-500/30 bg-violet-500/5 px-3 py-1 font-display text-xs font-semibold uppercase tracking-widest text-violet-400">
-            Formation 100% gratuite — Commencez maintenant
+            Formation gratuite pour les fédérations sportives
           </span>
 
           <h1 className="mt-8 font-display text-6xl font-black italic uppercase leading-none tracking-tighter md:text-8xl">
-            <span className="text-white">Construisez</span>
+            <span className="text-white">L&apos;IA au service</span>
             <br />
-            <span className="text-white">Votre</span>
+            <span className="text-white">du monde</span>
             <br />
-            <span className="inline-block bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">Savoir Ancré</span>
+            <span className="inline-block bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">du sport</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl">
-            Apprenez à maîtriser le RAG et la curation intelligente.
-            Ne lancez pas un logiciel, construisez votre propre cerveau externe avec NotebookLM.
+            Règlements, rapports, veille — centralisez le savoir de votre fédération.
+            Convainquez les instances des bienfaits de NotebookLM, l&apos;IA ancrée dans vos données.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -86,15 +86,15 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="text-center">
               <h2 className="font-display text-4xl font-black italic uppercase leading-none tracking-tighter md:text-6xl">
-                <span className="text-white">Construisez</span>
+                <span className="text-white">4 modules</span>
                 <br />
-                <span className="text-white">Votre</span>
+                <span className="text-white">pour les</span>
                 <br />
-                <span className="inline-block bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">Savoir Ancré</span>
+                <span className="inline-block bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">fédérations</span>
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-zinc-400">
-                Du fondamental au créatif, chaque module vous rapproche
-                de la maîtrise complète de NotebookLM.
+                De la curation des règlements à la production de supports,
+                maîtrisez NotebookLM pour transformer votre gouvernance.
               </p>
             </div>
           </ScrollReveal>
@@ -168,8 +168,8 @@ export default function HomePage() {
               Restez informé
             </h2>
             <p className="mt-4 text-zinc-400">
-              Recevez les nouveaux modules, astuces et mises à jour directement
-              dans votre boîte mail.
+              Recevez les nouveautés pour les fédérations sportives :
+              modules, cas d&apos;usage et retours d&apos;expérience.
             </p>
 
             <div className="mt-8">
