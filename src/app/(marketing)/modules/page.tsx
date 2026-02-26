@@ -1,0 +1,48 @@
+/**
+ * Catalogue des 3 parcours — Page /modules.
+ *
+ * @module app/modules/page
+ */
+
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ModuleCard } from "@/components/course/ModuleCard";
+import { MODULES } from "@/config/modules";
+
+export const metadata = {
+  title: "Modules",
+  description:
+    "1 formation en 4 modules pour maîtriser NotebookLM — de l'architecte de données au maître NotebookLM.",
+};
+
+export default function ModulesPage() {
+  return (
+    <div className="min-h-screen">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[var(--color-bg)] px-6 py-20 md:py-28">
+        <div className="hero-gradient-overlay" aria-hidden />
+        <div className="relative z-10 mx-auto max-w-4xl text-center">
+          <h1 className="font-display text-4xl font-extrabold uppercase leading-tight tracking-tight text-white md:text-6xl">
+            Construisez votre savoir ancré
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+            Apprenez à maîtriser le RAG et la curation intelligente.
+            Ne lancez pas un logiciel, construisez votre propre cerveau externe avec NotebookLM.
+          </p>
+        </div>
+      </section>
+
+      {/* Grille des modules */}
+      <section className="bg-[var(--color-bg-alt)] px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {MODULES.map((mod, index) => (
+              <ScrollReveal key={mod.id} delay={100 * index}>
+                <ModuleCard module={mod} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

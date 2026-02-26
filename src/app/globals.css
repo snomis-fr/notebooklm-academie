@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN SYSTEM — NotebookLM Académie (Dark Premium)
+   ============================================================
+   Thème dark : zinc-950, violet accent, emerald success.
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* --- Backgrounds (dark) --- */
+    --color-bg: #09090b;
+    --color-bg-alt: #18181b;
+    --color-bg-card: #27272a;
+    --color-bg-element: #3f3f46;
+
+    /* --- Texte --- */
+    --color-text: #ffffff;
+    --color-text-secondary: #a1a1aa;
+    --color-text-muted: #71717a;
+    --color-text-on-dark: #fafafa;
+
+    /* --- Couleurs principales (primary = titres/texte principal) --- */
+    --color-primary: #ffffff;
+    --color-primary-light: #f4f4f5;
+    --color-accent: #7c3aed;
+    --color-accent-hover: #6d28d9;
+    --color-accent-light: #a78bfa;
+
+    /* --- Surfaces --- */
+    --color-surface: #27272a;
+    --color-surface-hover: #3f3f46;
+    --color-border: #27272a;
+    --color-border-hover: rgba(139, 92, 246, 0.5);
+
+    /* --- Statuts --- */
+    --color-success: #34d399;
+    --color-success-light: rgba(52, 211, 153, 0.15);
+    --color-error: #f87171;
+    --color-error-light: rgba(248, 113, 113, 0.15);
+
+    /* --- Module badges --- */
+    --color-module-1: #3b82f6;
+    --color-module-2: #8b5cf6;
+    --color-module-3: #f59e0b;
+    --color-module-4: #34d399;
+
+    /* --- Spacing --- */
+    --section-padding: 5rem;
+
+    /* --- Transitions --- */
+    --transition-fast: 150ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 300ms ease-out;
+  }
+
+  /* --- Typography defaults --- */
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes progress-fill {
+  from { width: 0; }
+}
+
+@keyframes fade-in-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.7;
+  }
+}
+
+/* --- Utility classes --- */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+.animate-fade-in-reveal {
+  animation: fade-in-reveal 0.7s ease-out forwards;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* Staggered delays for lists */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Initially hidden for animations */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+/* ============================================================
+   CUSTOM UTILITIES
+   ============================================================ */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Gradient text (violet to cyan) */
+  .text-gradient {
+    display: inline-block;
+    background: linear-gradient(90deg, #a78bfa 0%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Hero glow */
+  .hero-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 58, 237, 0.15), transparent);
+    pointer-events: none;
+  }
+
+  /* Hero gradient overlay (dark) */
+  .hero-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.05) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(34, 211, 238, 0.03) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 14s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Subtle noise texture overlay */
+  .bg-noise {
+    position: relative;
+  }
+  .bg-noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+}

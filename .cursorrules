@@ -1,0 +1,191 @@
+# ============================================================
+# CURSOR RULES — NotebookLM Académie
+# ============================================================
+# Ce fichier est la LOI pour toute génération de code.
+# Cursor DOIT respecter chaque règle sans exception.
+# ============================================================
+
+## PROJECT CONTEXT
+
+NotebookLM Académie is a premium e-learning platform teaching people how to master
+Google NotebookLM. The audience ranges from executives and business teams to
+developers and students. The brand must feel: **modern, premium, intelligent, trustworthy**.
+
+Tech stack: Next.js 14 (App Router) + TypeScript + Supabase + Tailwind CSS + Vercel.
+
+## DESIGN IDENTITY (CRITICAL — THIS IS A PREMIUM PRODUCT)
+
+### Visual Direction: "Refined Intelligence"
+Think Apple Education meets Stripe Documentation. Clean, spacious, confident.
+NOT generic SaaS. NOT template-looking. NOT "AI purple gradient" cliché.
+
+### Typography
+- Display headings: Use `font-display` class mapped to a premium sans-serif
+  (e.g., "Plus Jakarta Sans", "Satoshi", "General Sans", or "Cabinet Grotesk")
+- Body text: Use `font-body` mapped to a highly readable sans-serif
+  (e.g., "Inter" ONLY for body, or "DM Sans")
+- NEVER use default system fonts for headings
+- Headings must be bold and generous in size (text-4xl to text-7xl on hero sections)
+- Line heights must be generous: leading-relaxed for body, leading-tight for headings
+
+### Color Palette (CSS variables in globals.css)
+- Primary: Deep navy/indigo (#1a1a2e or similar) — trust, intelligence
+- Accent: Vibrant coral/amber (#f59e0b or #ef4444) — energy, action, CTAs
+- Background: Warm off-white (#fafaf8) — NOT pure white
+- Surface: Soft warm gray (#f5f5f0) — cards, sections
+- Text: Near-black (#111111) for headings, (#444444) for body
+- Success: Emerald green for progress/completion states
+- NEVER use purple gradients, bright blue #0066ff, or generic SaaS palettes
+
+### Spatial Design
+- Sections: generous vertical padding (py-20 to py-32)
+- Max content width: max-w-6xl for text, max-w-7xl for full layouts
+- Cards: rounded-2xl with subtle shadow-sm, hover:shadow-md transition
+- Generous whitespace between elements — let the design breathe
+- Use asymmetric layouts when appropriate (text left, visual right)
+
+### Motion & Micro-interactions
+- Page load: staggered fade-in animations (use CSS @keyframes + animation-delay)
+- Scroll: subtle reveal on scroll using Intersection Observer
+- Buttons: scale-[1.02] on hover with transition-all duration-200
+- Cards: smooth hover lift with shadow transition
+- Progress bars: animated fill with ease-out timing
+- KEEP IT SUBTLE — premium = restrained elegance, not circus
+
+### Imagery & Icons
+- Use Lucide React icons consistently (never mix icon libraries)
+- Hero sections: full-width with gradient overlays or abstract geometric patterns
+- Module icons: custom colored badges, not generic clip art
+- Testimonial photos: rounded-full with ring-2 ring-white shadow
+
+### Component Patterns
+- Buttons: rounded-xl, font-semibold, generous px-6 py-3 padding
+- Input fields: rounded-xl, border-gray-200, focus:ring-2 focus:ring-primary
+- Navigation: sticky, backdrop-blur-md bg-white/80, with smooth transitions
+- Footer: comprehensive, dark background (#111111), organized in columns
+- Cards: always with rounded-2xl, consistent padding p-6 or p-8
+
+## ARCHITECTURE PRINCIPLES
+
+- Single Responsibility: one file = one responsibility
+- Maximum 150 lines per file. Split if longer
+- Separate: UI components / business logic / API calls / utilities / types
+- Use the established folder structure. NEVER put everything in one file
+- New feature = new folder with component + test + types if needed
+
+### Route Groups (Next.js App Router)
+```
+src/app/
+├── (marketing)/          → Public pages (landing, modules, blog, about)
+│   ├── page.tsx          → Homepage / landing
+│   ├── modules/          → Course catalog
+│   ├── a-propos/         → About page
+│   └── blog/             → Blog/articles (SEO)
+├── (platform)/           → Authenticated pages (Phase 2)
+│   ├── dashboard/        → User dashboard
+│   └── cours/            → Course player
+├── api/                  → API routes
+│   ├── auth/
+│   ├── newsletter/
+│   └── courses/
+├── layout.tsx            → Root layout
+└── globals.css           → Global styles + CSS variables
+```
+
+### Component Organization
+```
+src/components/
+├── ui/           → Primitive reusable (Button, Input, Badge, Card, Modal)
+├── layout/       → Structural (Header, Footer, Container, Section)
+├── marketing/    → Landing-specific (Hero, Features, Testimonials, Pricing, CTA)
+├── course/       → Course-specific (ModuleCard, LessonItem, ProgressBar)
+```
+
+## CODE QUALITY
+
+- TypeScript strict mode. No `any` types unless documented with `// WHY:`
+- All functions/components: JSDoc with `@param`, `@returns`, `@example`
+- Descriptive names: `getModuleById()` not `getData()`
+- Functions under 30 lines. Extract if longer
+- No duplication. Extract into utils/ or hooks/
+- Handle ALL errors explicitly. No empty catch blocks
+- Early returns to avoid nesting
+- `const` over `let`. Never `var`
+
+## SECURITY (NON-NEGOTIABLE)
+
+- NEVER hardcode API keys, secrets, passwords, tokens in any file
+- ALL secrets in .env.local via environment variables
+- ALWAYS maintain .env.example with placeholder values
+- Validate ALL user inputs server-side with Zod
+- EVERY API route: check auth + check authorization
+- Parameterized queries only (no string concatenation)
+- Never expose stack traces or internal errors to the client
+- Never log sensitive data
+- SUPABASE_SERVICE_ROLE_KEY: server-side ONLY
+
+## CONTENT STRUCTURE (NotebookLM Académie specific)
+
+The platform teaches 3 modules:
+1. "L'Architecte de Données" — Foundations: RAG, sources, grounding
+2. "Le Spécialiste de la Synthèse" — Analysis: prompting, auto tools, mind maps
+3. "Le Créateur Multimédia" — Production: audio, video, export
+
+Each module has 3 parts. Each part has activities and prompts.
+Data model must reflect: Module → Part → Activity/Prompt
+
+## TESTING
+
+- Every utility: corresponding .test.ts
+- Every API route: integration tests (success + validation error + auth error)
+- Descriptive test names in French context
+- Test edge cases: empty inputs, invalid data, unauthorized access
+
+## DOCUMENTATION
+
+- README.md: always reflects current project state
+- docs/ARCHITECTURE.md: folder structure + design decisions
+- docs/API.md: every endpoint documented
+- JSDoc on every exported function
+- `// WHY:` comments for non-obvious choices
+- CHANGELOG.md updated for every meaningful change
+
+## GIT CONVENTIONS
+
+- Conventional commits: feat:, fix:, docs:, refactor:, test:, chore:, style:
+- One logical change per commit
+- Never commit: .env.local, node_modules/, .next/, build artifacts
+- Branch naming: feature/xxx, fix/xxx, docs/xxx
+
+## WHEN GENERATING CODE, ALWAYS:
+1. Create separate files for separate concerns
+2. Add TypeScript types for ALL data structures
+3. Include error handling with user-friendly French messages
+4. Add JSDoc comments
+5. Create or update tests
+6. Update documentation if behavior changes
+7. Follow existing patterns
+8. Use existing utils — check before creating new ones
+9. Respect the design system (colors, spacing, typography)
+10. All user-facing text in FRENCH
+
+## WHEN I ASK FOR A NEW FEATURE:
+1. Explain approach: files to create/modify and why
+2. Wait for approval before coding
+3. Create files one by one, smallest dependencies first
+4. Show file structure being created
+5. Add tests alongside code
+6. Preview visual result when applicable
+
+## WHEN FIXING A BUG:
+1. Identify root cause
+2. Write failing test
+3. Fix the bug
+4. Verify test passes
+5. Check for same pattern elsewhere
+
+## RESPONSE FORMAT
+- Concise. Don't repeat my question
+- Proper syntax highlighting
+- Clearly label each file
+- If unclear, ask ONE targeted question
