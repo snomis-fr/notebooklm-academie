@@ -243,3 +243,328 @@
     pointer-events: none;
   }
 }
+
+/* ============================================================
+   PAGE CAS D'USAGE
+   ============================================================ */
+
+.page-hero {
+  background: var(--color-bg);
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero .eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: 1.5rem;
+}
+
+.page-hero h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+
+.page-hero h1 .accent {
+  color: var(--color-accent);
+  display: block;
+}
+
+.page-hero .hero-sub {
+  color: var(--color-text-secondary);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  font-size: 1rem;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-stats .stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-stats .stat strong {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-accent-light);
+  line-height: 1;
+}
+
+.hero-stats .stat span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.filter-bar {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--color-bg-alt);
+  position: sticky;
+  top: 65px; /* sous la navbar */
+  z-index: 10;
+}
+
+@media (max-width: 640px) {
+  .filter-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  letter-spacing: 0.03em;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-accent-light);
+}
+
+.filter-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.usecases-grid {
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1px;
+  background: var(--color-border);
+}
+
+@media (max-width: 640px) {
+  .usecases-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.usecases-grid > * {
+  background: var(--color-bg-card);
+}
+
+.usecase-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 1.75rem;
+  transition: all var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.usecase-card:hover {
+  border-color: var(--color-border-hover);
+  background: #2a1f3d;
+  transform: translateY(-2px);
+}
+
+.usecase-card .card-header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.usecase-card .card-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(124, 58, 237, 0.2);
+  line-height: 1;
+  min-width: 3rem;
+  transition: color var(--transition-base);
+}
+
+.usecase-card:hover .card-number {
+  color: rgba(124, 58, 237, 0.5);
+}
+
+.usecase-card .card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.usecase-card .tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border: 1px solid;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+.usecase-card .card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.usecase-card .card-description {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.usecase-card .card-prompt {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid var(--color-accent);
+  padding: 0.6rem 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.usecase-card .prompt-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.usecase-card .prompt-text {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.usecase-card .card-impact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.usecase-card .impact-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.usecase-card .impact-dot[data-impact="high"] {
+  background: var(--color-accent);
+  box-shadow: 0 0 6px rgba(124, 58, 237, 0.6);
+}
+
+.usecase-card .impact-dot[data-impact="medium"] {
+  background: #f59e0b;
+}
+
+.usecase-card .impact-dot[data-impact="low"] {
+  background: var(--color-bg-element);
+}
+
+.usecase-card .impact-text {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* CTA Cas d'usage — Homepage */
+.cta-cas-usage {
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cta-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 4px 14px;
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.cta-cas-usage h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.cta-desc {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  max-width: 480px;
+}
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0;
+  transition: background var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-accent:hover {
+  background: var(--color-accent-hover);
+}

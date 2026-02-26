@@ -83,6 +83,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── CTA CAS D'USAGE ───────────────────── */}
+      <section className="cta-cas-usage">
+        <div className="cta-inner">
+          <p className="cta-eyebrow">Cas d&apos;usage</p>
+          <h2>
+            20 façons concrètes d&apos;utiliser
+            <br />
+            NotebookLM dans votre fédération
+          </h2>
+          <p className="cta-desc">
+            Présidence, DTN, communication, gouvernance — des cas d&apos;usage
+            opérationnels avec prompts prêts à l&apos;emploi.
+          </p>
+          <Link href="/cas-usage" className="btn-accent">
+            Voir les 20 cas d&apos;usage →
+          </Link>
+        </div>
+      </section>
+
       {/* ── FONDATEUR ─────────────────────────── */}
       <FondateurSection />
 

@@ -40,6 +40,7 @@ export const config = {
   navigation: {
     main: [
       { label: "Modules", href: "/modules" },
+      { label: "Cas d'usage", href: "/cas-usage" },
       { label: "Blog", href: "/blog" },
       { label: "À propos", href: "/a-propos" },
     ],
