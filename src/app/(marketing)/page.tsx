@@ -2,19 +2,22 @@
  * Page d'accueil — Landing page NotebookLM Académie.
  *
  * Structure :
- * 1. Hero — Accroche principale + CTA (gradient animé)
- * 2. Modules — Les 3 parcours (fade-in au scroll, hover lift)
- * 3. Chiffres clés — Compteurs animés
- * 4. Newsletter CTA — Capture d'email
+ * 1. Hero — Accroche + CTA
+ * 2. Fondateur — À propos de Stéphane Nomis
+ * 3. Témoignage — Placeholder
+ * 4. Modules — 4 parcours
+ * 5. Blocs réassurance — 3 problèmes / solutions
+ * 6. Newsletter CTA
  *
  * @module app/page
  */
 
 import Link from "next/link";
 import { ArrowRight, Database, Brain, PlayCircle, GraduationCap } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { ChiffresCles } from "@/components/marketing/ChiffresCles";
+import { BlocsReassurance } from "@/components/marketing/BlocsReassurance";
+import { FondateurSection } from "@/components/marketing/FondateurSection";
+import { TemoignageBloc } from "@/components/marketing/TemoignageBloc";
 import { NewsletterForm } from "@/components/marketing/NewsletterForm";
 import { MODULES } from "@/config/modules";
 
@@ -51,34 +54,40 @@ export default function HomePage() {
             Formation gratuite pour les fédérations sportives
           </span>
 
-          <h1 className="mt-8 font-display text-6xl font-black italic uppercase leading-none tracking-tighter md:text-8xl">
-            <span className="text-white">L&apos;IA au service</span>
-            <br />
-            <span className="text-white">du monde</span>
-            <br />
-            <span className="inline-block bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">du sport</span>
+          <h1 className="mt-8 font-display text-5xl font-black leading-tight tracking-tighter text-white md:text-7xl">
+            Votre fédération perd sa mémoire tous les 4 ans.
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl">
-            Règlements, rapports, veille — centralisez le savoir de votre fédération.
-            Convainquez les instances des bienfaits de NotebookLM, l&apos;IA ancrée dans vos données.
+            Changement d&apos;élus, départ d&apos;un DG, turnover des équipes — les
+            décisions passées, les règlements interprétés, les engagements pris
+            disparaissent avec eux. NotebookLM est le cerveau collectif de votre
+            fédération. Gratuit, fiable, sans hallucination.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/modules/architecte-donnees">
-              <Button variant="accent" size="lg">
-                Commencer gratuitement
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+            <Link
+              href="/modules/architecte-donnees"
+              className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-8 py-4 text-lg font-semibold text-white shadow-violet transition-all duration-200 hover:bg-violet-500 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:ring-offset-2 focus:ring-offset-zinc-950"
+            >
+              Voir comment ça marche
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Link href="/modules">
-              <Button variant="outline" size="lg">
-                Voir les modules
-              </Button>
+            <Link
+              href="/modules"
+              className="inline-flex items-center justify-center rounded-xl border border-zinc-600 bg-transparent px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:border-violet-500/50 hover:text-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:ring-offset-2 focus:ring-offset-zinc-950"
+            >
+              Voir les modules
             </Link>
           </div>
         </div>
       </section>
+
+      {/* ── FONDATEUR ─────────────────────────── */}
+      <FondateurSection />
+
+      {/* ── TÉMOIGNAGE ────────────────────────── */}
+      <TemoignageBloc />
 
       {/* ── MODULES ───────────────────────────── */}
       <section className="bg-zinc-950 px-6 py-24">
@@ -155,10 +164,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CHIFFRES CLÉS ─────────────────────── */}
-      <ScrollReveal>
-        <ChiffresCles />
-      </ScrollReveal>
+      {/* ── BLOCS RÉASSURANCE ─────────────────── */}
+      <BlocsReassurance />
 
       {/* ── NEWSLETTER CTA ────────────────────── */}
       <section className="bg-zinc-950 px-6 py-24">
