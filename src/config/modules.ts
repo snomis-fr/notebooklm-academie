@@ -184,6 +184,9 @@ export const MODULES: Module[] = [
         title: "L'Audio Overview Interactif (Le Podcast IA)",
         description:
           "Générer un podcast à partir de vos documents. Idéal pour résumer les décisions de comité aux clubs ou diffuser les nouveautés réglementaires.",
+        audioUrl: "/audio/module3-audio-overview.m4a",
+        audioDescription:
+          "Exemple concret : un audio débat entre 2 personnes qui discutent du dernier congrès de l'IJF. NotebookLM a utilisé les sources officielles et rapports importés pour générer cet audio — l'IA raconte une histoire ancrée dans vos données.",
         activities: [
           {
             id: "m3-p1-a1",
@@ -201,6 +204,10 @@ export const MODULES: Module[] = [
         title: "La Production Vidéo et Visuelle",
         description:
           "Créer des vidéos et visuels pour formations, communication interne et supports clubs.",
+        videoUrls: [
+          "https://www.youtube.com/watch?v=fH9P80lKsTA",
+          "https://www.youtube.com/watch?v=ZRzsd_oj2Vg",
+        ],
         activities: [
           {
             id: "m3-p2-a1",
@@ -218,6 +225,7 @@ export const MODULES: Module[] = [
         title: "L'Export et l'Intégration (Vers l'écosystème Google)",
         description:
           "Exporter vers Docs, Slides, Drive. Intégrer NotebookLM au workflow Google Workspace des fédérations.",
+        videoUrl: "https://www.youtube.com/watch?v=34mxTj0jHpU",
         activities: [
           {
             id: "m3-p3-a1",

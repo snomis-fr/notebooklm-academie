@@ -46,38 +46,95 @@ function PartContent({
   closingMessageTitle?: string;
   closingMessageText?: string;
 }) {
-  const embedId = part.videoUrl ? getYouTubeEmbedId(part.videoUrl) : "";
+  const videoIds = part.videoUrls?.length
+    ? part.videoUrls.map((url) => getYouTubeEmbedId(url)).filter(Boolean)
+    : part.videoUrl
+      ? [getYouTubeEmbedId(part.videoUrl)].filter(Boolean)
+      : [];
+  const hasVideos = videoIds.length > 0;
 
   return (
     <div className="space-y-8">
-      {/* Vidéo */}
-      {embedId && (
-        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900">
-          <div className="aspect-video w-full">
-            <iframe
-              src={`https://www.youtube.com/embed/${embedId}`}
-              title={`Vidéo : ${part.title}`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="h-full w-full"
-            />
-          </div>
-          <div className="border-t border-zinc-800 px-6 py-4">
+      {/* Vidéo(s) */}
+      {hasVideos && (
+        <div className="space-y-6">
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 px-6 py-4">
             <h3 className="font-display text-lg font-bold text-white">
               {part.order}. {part.title}
             </h3>
             <p className="mt-1 text-sm text-zinc-400">{part.description}</p>
           </div>
+          {videoIds.map((embedId, index) => (
+            <div
+              key={`${embedId}-${index}`}
+              className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900"
+            >
+              <div className="aspect-video w-full">
+                <iframe
+                  src={`https://www.youtube.com/embed/${embedId}`}
+                  title={
+                    videoIds.length > 1
+                      ? `Vidéo ${index + 1} : ${part.title}`
+                      : `Vidéo : ${part.title}`
+                  }
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="h-full w-full"
+                />
+              </div>
+              {videoIds.length > 1 && (
+                <div className="border-t border-zinc-800 px-4 py-2">
+                  <span className="text-xs font-medium text-zinc-500">
+                    Vidéo {index + 1} / {videoIds.length}
+                  </span>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
 
       {/* Pas de vidéo pour cette partie */}
-      {!embedId && (
+      {!hasVideos && (
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 px-6 py-8">
           <h3 className="font-display text-lg font-bold text-white">
             {part.order}. {part.title}
           </h3>
           <p className="mt-2 text-sm text-zinc-400">{part.description}</p>
+        </div>
+      )}
+
+      {/* Audio démo (ex. Audio Overview généré par NotebookLM) */}
+      {part.audioUrl && (
+        <div className="rounded-2xl border border-amber-500/30 bg-amber-500/5 p-6">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/20">
+              <svg
+                className="h-6 w-6 text-amber-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <h4 className="font-display text-sm font-semibold uppercase tracking-widest text-amber-400">
+                Exemple Audio Overview
+              </h4>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+                {part.audioDescription}
+              </p>
+              <audio
+                src={part.audioUrl}
+                controls
+                className="mt-4 w-full max-w-md"
+                preload="metadata"
+              >
+                Votre navigateur ne supporte pas l&apos;élément audio.
+              </audio>
+            </div>
+          </div>
         </div>
       )}
 

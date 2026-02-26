@@ -29,6 +29,12 @@ export interface ModulePart {
   description: string;
   /** URL de la vidéo YouTube de la leçon (optionnel) */
   videoUrl?: string;
+  /** Plusieurs vidéos (optionnel, prioritaire sur videoUrl) */
+  videoUrls?: string[];
+  /** Audio démo généré par NotebookLM (optionnel) */
+  audioUrl?: string;
+  /** Contexte/description de l'audio démo */
+  audioDescription?: string;
   activities: Activity[];
   /** Note affichée après les activités (optionnel) */
   noteAfterActivities?: string;
