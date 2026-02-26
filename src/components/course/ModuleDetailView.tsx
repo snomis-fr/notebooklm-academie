@@ -9,6 +9,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { FlaskConical } from "lucide-react";
 import type { Module, ModulePart } from "@/types";
@@ -55,6 +56,27 @@ function PartContent({
 
   return (
     <div className="space-y-8">
+      {/* Image / Infographie (au-dessus de la vidéo) */}
+      {part.imageUrl && (
+        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900">
+          <div className="relative w-full">
+            <Image
+              src={part.imageUrl}
+              alt={part.imageCaption ?? part.title}
+              width={1200}
+              height={800}
+              className="w-full object-contain"
+              unoptimized
+            />
+          </div>
+          {part.imageCaption && (
+            <p className="border-t border-zinc-800 px-6 py-3 text-center text-sm text-zinc-500">
+              {part.imageCaption}
+            </p>
+          )}
+        </div>
+      )}
+
       {/* Vidéo(s) */}
       {hasVideos && (
         <div className="space-y-6">

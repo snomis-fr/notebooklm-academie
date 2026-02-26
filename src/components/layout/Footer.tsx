@@ -18,7 +18,7 @@ export function Footer() {
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               La plateforme de référence pour maîtriser Google NotebookLM —
-              du débutant à l&apos;expert.
+              du débutant à l&apos;expert dans le monde du sport.
             </p>
           </div>
 
@@ -57,6 +57,11 @@ export function Footer() {
               Liens
             </h3>
             <ul className="mt-4 space-y-3">
+              <li>
+                <Link href="/cas-usage" className="text-sm text-zinc-400 transition-colors hover:text-violet-400">
+                  Cas d&apos;usage
+                </Link>
+              </li>
               <li>
                 <Link href="/blog" className="text-sm text-zinc-400 transition-colors hover:text-violet-400">
                   Blog

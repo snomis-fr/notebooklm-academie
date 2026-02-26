@@ -75,6 +75,8 @@ export const MODULES: Module[] = [
         description:
           "Maîtriser l'interface complète. Montrez aux comités comment vérifier chaque réponse avec les citations vers les documents sources.",
         videoUrl: "https://www.youtube.com/watch?v=sICEx_PCWUM",
+        imageUrl: "/images/module1-infographie.png",
+        imageCaption: "Infographie générée par NotebookLM",
         activities: [
           {
             id: "m1-p3-a1",
@@ -244,9 +246,9 @@ export const MODULES: Module[] = [
     order: 4,
     title: "Le Maître NotebookLM",
     subtitle: "L'Expertise",
-    objectif: "Déployer NotebookLM en fédération : veille, comités, routines et bonnes pratiques.",
+    objectif: "Maîtriser Deep Research, l'audit des sources et NotebookLM comme second cerveau institutionnel.",
     description:
-      "Cas d'usage avancés pour fédérations : veille réglementaire, carnets par commission, routines de mise à jour, partage avec les instances.",
+      "Recherche profonde, détection des biais, second cerveau — les compétences expertes pour déployer NotebookLM en gouvernance fédérale.",
     icon: "graduation-cap",
     color: "module-4",
     isFree: true,
@@ -255,51 +257,54 @@ export const MODULES: Module[] = [
     parts: [
       {
         id: "m4-p1",
-        slug: "cas-usage-avances",
+        slug: "deep-research",
         order: 1,
-        title: "Cas d'Usage Avancés",
+        title: 'Le Mode "Deep Research" (Recherche Profonde)',
         description:
-          "Veille réglementaire, carnets par commission, recherche multi-sources. Construire un carnet stratégique pour le comité directeur.",
+          "Explorer la recherche approfondie : NotebookLM va au-delà de vos sources pour enrichir vos carnets. Idéal pour compléter une veille réglementaire ou une analyse stratégique.",
+        videoUrl: "https://www.youtube.com/watch?v=0UJ9Etc2UQ4",
         activities: [
           {
             id: "m4-p1-a1",
-            title: "Le Projet Réel",
+            title: "La Recherche Enrichie",
             description:
-              "Construire un carnet fédéral complet : règlement, rapports annuels, décisions de comité. Démonstration pour convaincre les instances.",
+              "Lancer une Deep Research sur un sujet clé (ex : évolution du dopage en sport). Comparer les réponses ancrées dans vos sources avec les apports de la recherche externe.",
             type: "practice",
           },
         ],
       },
       {
         id: "m4-p2",
-        slug: "bonnes-pratiques",
+        slug: "audit-sources",
         order: 2,
-        title: "Bonnes Pratiques et Pièges",
+        title: "L'Audit de Sources (Détecter les biais)",
         description:
-          "Optimiser la qualité des réponses, gérer les limites. Éviter les erreurs courantes lors du déploiement en fédération.",
+          "Identifier les angles morts et les biais dans vos carnets. Garantir une diversité de points de vue pour des décisions éclairées en comité.",
+        videoUrl: "https://www.youtube.com/watch?v=cywm1KSTy20",
         activities: [
           {
             id: "m4-p2-a1",
-            title: "L'Auditeur",
+            title: "Le Détective de Biais",
             description:
-              "Auditer un carnet fédéral existant : structure des sources, curation, pertinence pour les instances. Proposer des améliorations.",
+              "Auditer un carnet existant : quelles sources manquent ? Y a-t-il un déséquilibre entre rapports internes et externes ? Proposer des sources complémentaires pour limiter les biais.",
             type: "practice",
           },
         ],
       },
       {
         id: "m4-p3",
-        slug: "integration-workflow",
+        slug: "second-cerveau",
         order: 3,
-        title: "Intégration dans le Workflow",
+        title: 'NotebookLM comme "Second Cerveau"',
         description:
-          "NotebookLM au quotidien en fédération : routines de mise à jour, partage avec les ligues, évolution des carnets par saison.",
+          "Intégrer NotebookLM dans votre gouvernance : mémoire institutionnelle persistante, routines de mise à jour, partage avec les ligues. Le carnet comme extension de votre équipe.",
+        videoUrl: "https://www.youtube.com/watch?v=TAQ2rP2PauA",
         activities: [
           {
             id: "m4-p3-a1",
             title: "Le Routinier",
             description:
-              "Mettre en place une routine : alimenter le carnet après chaque comité, mettre à jour le règlement à chaque AG. Pérenniser l'usage.",
+              "Mettre en place une routine : alimenter le carnet après chaque comité, mettre à jour le règlement à chaque AG. Pérenniser l'usage et en faire un réflexe fédéral.",
             type: "practice",
           },
         ],

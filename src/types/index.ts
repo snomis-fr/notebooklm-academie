@@ -35,6 +35,10 @@ export interface ModulePart {
   audioUrl?: string;
   /** Contexte/description de l'audio démo */
   audioDescription?: string;
+  /** Image/infographie (optionnel) */
+  imageUrl?: string;
+  /** Légende sous l'image */
+  imageCaption?: string;
   activities: Activity[];
   /** Note affichée après les activités (optionnel) */
   noteAfterActivities?: string;
