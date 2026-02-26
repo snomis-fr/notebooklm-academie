@@ -30,6 +30,8 @@ export interface ModulePart {
   /** URL de la vidéo YouTube de la leçon (optionnel) */
   videoUrl?: string;
   activities: Activity[];
+  /** Note affichée après les activités (optionnel) */
+  noteAfterActivities?: string;
 }
 
 /** Module de formation complet */
@@ -48,6 +50,12 @@ export interface Module {
   duration: string;
   level: "Débutant" | "Intermédiaire" | "Avancé" | "Expert";
   parts: ModulePart[];
+  /** Message audio de conclusion (optionnel) */
+  closingAudioUrl?: string;
+  /** Titre du message de conclusion */
+  closingMessageTitle?: string;
+  /** Texte sous l'audio de conclusion (optionnel) */
+  closingMessageText?: string;
 }
 
 /* ============================================================

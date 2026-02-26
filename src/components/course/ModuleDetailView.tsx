@@ -34,9 +34,17 @@ interface ModuleDetailViewProps {
 function PartContent({
   part,
   styles,
+  showClosingAudio,
+  closingAudioUrl,
+  closingMessageTitle,
+  closingMessageText,
 }: {
   part: ModulePart;
   styles: { badge: string; icon: string };
+  showClosingAudio?: boolean;
+  closingAudioUrl?: string;
+  closingMessageTitle?: string;
+  closingMessageText?: string;
 }) {
   const embedId = part.videoUrl ? getYouTubeEmbedId(part.videoUrl) : "";
 
@@ -103,6 +111,54 @@ function PartContent({
           </div>
         </div>
       )}
+
+      {/* Note après les activités */}
+      {part.noteAfterActivities && (
+        <div className="rounded-xl border border-zinc-700 bg-zinc-900/50 px-6 py-4">
+          <p className="text-sm italic leading-relaxed text-zinc-400">
+            {part.noteAfterActivities}
+          </p>
+        </div>
+      )}
+
+      {/* Message audio de conclusion (fin du module) */}
+      {showClosingAudio && closingAudioUrl && (
+        <div className="mt-8 rounded-2xl border border-violet-500/30 bg-violet-500/5 p-6">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-500/20">
+              <svg
+                className="h-6 w-6 text-violet-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <h4 className="font-display text-sm font-semibold uppercase tracking-widest text-violet-400">
+                Message de conclusion
+              </h4>
+              <p className="mt-1 font-display text-lg font-bold text-white">
+                {closingMessageTitle}
+              </p>
+              <audio
+                src={closingAudioUrl}
+                controls
+                className="mt-4 w-full max-w-md"
+                preload="metadata"
+              >
+                Votre navigateur ne supporte pas l&apos;élément audio.
+              </audio>
+              {closingMessageText && (
+                <p className="mt-6 text-sm leading-relaxed text-zinc-400">
+                  {closingMessageText}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -153,7 +209,17 @@ export function ModuleDetailView({ module: mod, basePath }: ModuleDetailViewProp
 
       {/* Contenu droit — vidéo + activités */}
       <main className="min-w-0 flex-1 py-6 lg:py-0">
-        <PartContent part={selectedPart} styles={styles} />
+        <PartContent
+          part={selectedPart}
+          styles={styles}
+          showClosingAudio={
+            !!mod.closingAudioUrl &&
+            selectedPart.order === mod.parts.length
+          }
+          closingAudioUrl={mod.closingAudioUrl}
+          closingMessageTitle={mod.closingMessageTitle}
+          closingMessageText={mod.closingMessageText}
+        />
       </main>
     </div>
   );

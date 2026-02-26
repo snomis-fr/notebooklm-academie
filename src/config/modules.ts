@@ -26,7 +26,7 @@ export const MODULES: Module[] = [
     icon: "database",
     color: "module-1",
     isFree: true, // Formation gratuite pour tous
-    duration: "2h30",
+    duration: "1h",
     level: "Débutant",
     parts: [
       {
@@ -46,6 +46,8 @@ export const MODULES: Module[] = [
             type: "practice",
           },
         ],
+        noteAfterActivities:
+          "NotebookLM n'est pas magique — il est honnête. Il vous rend exactement ce que vous lui donnez, en mieux organisé. Donnez-lui du bruit, il produira du bruit. Donnez-lui de la substance, il produira de l'intelligence.",
       },
       {
         id: "m1-p2",
@@ -84,6 +86,10 @@ export const MODULES: Module[] = [
         ],
       },
     ],
+    closingAudioUrl: "/audio/module1-closing.m4a",
+    closingMessageTitle: "Maîtriser NotebookLM et éviter les hallucinations",
+    closingMessageText:
+      "Avant tout, retenez un principe fondamental qui conditionne 100% de vos résultats avec NotebookLM — et avec toute IA : Garbage In, Garbage Out. Si vous importez des sources de mauvaise qualité, incomplètes ou mal structurées, l'IA produira des analyses médiocres, peu importe sa puissance. La qualité de votre output dépend entièrement de la qualité de votre input. En clair : NotebookLM est un amplificateur — il amplifie le meilleur comme le pire de vos données.",
   },
   {
     id: "module-2",
