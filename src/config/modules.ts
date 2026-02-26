@@ -107,6 +107,7 @@ export const MODULES: Module[] = [
         title: 'Le "Super Prompting" (Rôle + Tâche + Contexte)',
         description:
           "Formule pour des réponses précises. Ex : « Agis comme un formateur d'arbitres et résume les changements réglementaires. »",
+        videoUrl: "https://www.youtube.com/watch?v=LFnctCNfjQ4",
         activities: [
           {
             id: "m2-p1-a1",
@@ -124,6 +125,7 @@ export const MODULES: Module[] = [
         title: "Les Outils Automatiques (Résumé, FAQ, Chronologie)",
         description:
           "Génération en un clic : FAQ réglementaire pour les clubs, chronologie des événements pour les rapports annuels.",
+        videoUrl: "https://www.youtube.com/watch?v=xKjvcu1f2Bs",
         activities: [
           {
             id: "m2-p2-a1",
@@ -141,6 +143,7 @@ export const MODULES: Module[] = [
         title: "Visualisation et Connexions (Mind Maps)",
         description:
           "Découvrir des liens entre règlements, rapports et projets. Visualiser les connexions pour les présentations en AG.",
+        videoUrl: "https://www.youtube.com/watch?v=5U38uaGK-Qw",
         activities: [
           {
             id: "m2-p3-a1",

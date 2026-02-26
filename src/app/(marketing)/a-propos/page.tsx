@@ -5,6 +5,7 @@
  */
 
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import Image from "next/image";
 import {
   Target,
   Sparkles,
@@ -12,6 +13,7 @@ import {
   GraduationCap,
   Mail,
   Linkedin,
+  User,
 } from "lucide-react";
 import { config } from "@/config/app";
 
@@ -79,6 +81,47 @@ export default function AProposPage() {
                   diffusez le savoir, convainquez les instances des bienfaits de
                   l&apos;IA ancrée dans vos données. Une formation gratuite et
                   actionnable.
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Créateur */}
+      <section className="px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-4xl">
+          <ScrollReveal>
+            <div className="flex flex-col items-center gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 md:flex-row md:items-start">
+              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full">
+                <Image
+                  src="/images/stephene-nomis.png"
+                  alt="Stéphane Nomis"
+                  width={96}
+                  height={96}
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <div className="flex items-center justify-center gap-2 md:justify-start">
+                  <User className="h-5 w-5 text-violet-400" />
+                  <span className="text-xs font-semibold uppercase tracking-widest text-violet-400">
+                    Créateur
+                  </span>
+                </div>
+                <h2 className="mt-2 font-display text-2xl font-bold text-white">
+                  Stéphane Nomis
+                </h2>
+                <p className="mt-1 text-sm font-medium text-zinc-400">
+                  Président de France Judo
+                </p>
+                <p className="mt-4 text-[var(--color-text-secondary)]">
+                  Cette plateforme a été créée par Stéphane Nomis, président de
+                  France Judo, membre du Comité Exécutif de la Fédération
+                  Internationale de Judo (IJF) et membre du Conseil
+                  d&apos;Administration du CNOSF. France Judo a été la première
+                  fédération française à déployer NotebookLM à l&apos;échelle de
+                  ses instances.
                 </p>
               </div>
             </div>
