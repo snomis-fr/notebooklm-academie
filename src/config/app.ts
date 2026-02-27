@@ -42,6 +42,7 @@ export const config = {
       { label: "Modules", href: "/modules" },
       { label: "Cas d'usage", href: "/cas-usage" },
       { label: "100 Prompts", href: "/prompts" },
+      { label: "Prompts de style", href: "/prompts-style" },
       { label: "Blog", href: "/blog" },
       { label: "À propos", href: "/a-propos" },
     ],

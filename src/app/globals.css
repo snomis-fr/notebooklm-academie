@@ -290,6 +290,14 @@
   display: block;
 }
 
+.page-hero-compact {
+  padding-bottom: 2rem;
+}
+
+.page-hero-compact .hero-sub {
+  margin-bottom: 0;
+}
+
 .page-hero .hero-sub {
   color: var(--color-text-secondary);
   max-width: 560px;
@@ -599,11 +607,47 @@
   transition: color var(--transition-base);
 }
 
+.prompt-card-preview-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+  cursor: help;
+}
+
 .prompt-card-preview {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
-  margin-bottom: 1rem;
+}
+
+.prompt-card-tooltip {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  z-index: 50;
+  width: max-content;
+  max-width: 420px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 1rem 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity var(--transition-base), visibility var(--transition-base), transform var(--transition-base);
+  pointer-events: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.prompt-card-preview-wrapper:hover .prompt-card-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .prompt-card-usage {
@@ -706,6 +750,157 @@
 
 .prompt-card-badge-optional {
   border: 1px solid var(--color-bg-element);
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   PROMPTS DE STYLE — 15 directives, layout 2 colonnes
+   ============================================================ */
+
+.style-prompts-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 0;
+  min-height: 60vh;
+}
+
+@media (max-width: 1024px) {
+  .style-prompts-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .style-prompts-media {
+    order: -1;
+    min-height: 280px;
+  }
+}
+
+.style-prompts-column {
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+  .style-prompts-column {
+    border-right: none;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+.style-prompts-list {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.style-prompt-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  padding: 1.25rem 1.5rem;
+  transition: all var(--transition-base);
+}
+
+.style-prompt-card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.style-prompt-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.style-prompt-card-number {
+  font-size: 0.75rem;
+  font-family: ui-monospace, monospace;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.style-prompt-card-title {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.style-prompt-card-copy {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-bg-element);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.style-prompt-card-copy:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-light);
+}
+
+.style-prompt-card-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.style-prompts-media {
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  align-self: start;
+}
+
+@media (max-width: 1024px) {
+  .style-prompts-media {
+    position: static;
+  }
+}
+
+.style-prompts-media-placeholder {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 16 / 10;
+  border: 2px dashed var(--color-border);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-text-muted);
+}
+
+.style-prompts-media-icon {
+  opacity: 0.4;
+}
+
+.style-prompts-media-text {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.style-prompts-media-text span {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.style-prompts-media-hint {
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 

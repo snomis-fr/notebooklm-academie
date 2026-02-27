@@ -68,6 +68,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/prompts-style" className="text-sm text-zinc-400 transition-colors hover:text-violet-400">
+                  Prompts de style
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="text-sm text-zinc-400 transition-colors hover:text-violet-400">
                   Blog
                 </Link>

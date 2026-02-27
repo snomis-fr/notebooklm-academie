@@ -52,7 +52,18 @@ export function PromptCard({ prompt }: PromptCardProps) {
             <span className="prompt-card-id">#{prompt.id}</span>
           </div>
           <h3 className="prompt-card-title">{prompt.title}</h3>
-          <p className="prompt-card-preview line-clamp-3">{prompt.prompt}</p>
+          <div className="prompt-card-preview-wrapper">
+            <p className="prompt-card-preview line-clamp-3" aria-describedby={`prompt-full-${prompt.id}`}>
+              {prompt.prompt}
+            </p>
+            <div
+              id={`prompt-full-${prompt.id}`}
+              role="tooltip"
+              className="prompt-card-tooltip"
+            >
+              {prompt.prompt}
+            </div>
+          </div>
           <div className="prompt-card-usage">
             <span className="prompt-card-arrow">→</span>
             <span>{prompt.usage}</span>
