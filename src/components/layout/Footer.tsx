@@ -8,7 +8,7 @@ import { config } from "@/config/app";
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-800 bg-zinc-950 text-white">
+    <footer className="border-t border-zinc-800 bg-zinc-950 pb-20 text-white md:pb-6">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
@@ -75,11 +75,6 @@ export function Footer() {
               <li>
                 <Link href="/comparatif-plans" className="text-sm text-zinc-400 transition-colors hover:text-violet-400">
                   Comparatif plans
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-sm text-zinc-400 transition-colors hover:text-violet-400">
-                  Blog
                 </Link>
               </li>
               <li>

@@ -6,6 +6,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { BottomBar } from "@/components/layout/BottomBar";
 import { config } from "@/config/app";
 import "./globals.css";
 
@@ -42,8 +43,9 @@ export default function RootLayout({
     <html lang="fr">
       <body className="flex min-h-screen flex-col bg-[var(--color-bg)] font-body text-[var(--color-text)] antialiased">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-16">{children}</main>
         <Footer />
+        <BottomBar />
       </body>
     </html>
   );

@@ -36,7 +36,7 @@ export const config = {
     email: "contact@notebooklm-academie.com",
   },
 
-  /** Navigation principale */
+  /** Navigation principale (barre du haut) */
   navigation: {
     main: [
       { label: "Modules", href: "/modules" },
@@ -44,11 +44,19 @@ export const config = {
       { label: "100 Prompts", href: "/prompts" },
       { label: "Prompts de style", href: "/prompts-style" },
       { label: "Comparatif plans", href: "/comparatif-plans" },
-      { label: "Blog", href: "/blog" },
-      { label: "À propos", href: "/a-propos" },
     ],
     cta: { label: "Commencer gratuitement", href: "/modules/architecte-donnees" },
   },
+
+  /** Barre du bas (menu + À propos) */
+  navigationBottom: [
+    { label: "Modules", href: "/modules" },
+    { label: "Cas d'usage", href: "/cas-usage" },
+    { label: "100 Prompts", href: "/prompts" },
+    { label: "Prompts de style", href: "/prompts-style" },
+    { label: "Comparatif plans", href: "/comparatif-plans" },
+    { label: "À propos", href: "/a-propos" },
+  ],
 
   /** SEO defaults */
   seo: {
