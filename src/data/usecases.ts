@@ -141,5 +141,6 @@ export const USE_CASES: UseCase[] = [
     sousFormat: "Débat",
     prompt: `Génère un script de podcast prospectif de 15 minutes entre un dirigeant de fédération sportive et un expert en intelligence artificielle, sur le thème : "Comment l'IA va transformer l'antidopage dans les 5 prochaines années ?" Couvre : analyse prédictive des profils biologiques, automatisation de la gestion des whereabouts, IA et détection de nouvelles substances, enjeux éthiques et protection des données, opportunités pour les fédérations pionnières. Ancre le propos dans les standards actuels WADA/AFLD présents dans le carnet, puis projette vers l'avenir. Ton : visionnaire mais rigoureux.`,
     diffusion: "Conférences sport-tech, IJF, CNOSF, LinkedIn, médias spécialisés",
+    example: "/audio/11_L_IA_antidopage_entre_bouclier_et_menace.m4a",
   },
 ];
