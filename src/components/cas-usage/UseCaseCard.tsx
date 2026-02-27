@@ -8,7 +8,7 @@
 
 import { useState, useCallback } from "react";
 import Link from "next/link";
-import { Copy, Headphones, FileText } from "lucide-react";
+import { Copy, Headphones, FileText, Video } from "lucide-react";
 import type { UseCase } from "@/data/usecases";
 
 interface UseCaseCardProps {
@@ -40,7 +40,10 @@ export function UseCaseCard({ useCase }: UseCaseCardProps) {
     diffusion,
     example,
     examplePdf,
+    exampleVideo,
   } = useCase;
+
+  const hasExample = example || examplePdf || exampleVideo;
 
   const handleCopyPrompt = useCallback(async () => {
     const ok = await copyToClipboard(prompt);
@@ -97,12 +100,24 @@ export function UseCaseCard({ useCase }: UseCaseCardProps) {
           </div>
         </div>
 
-        {(example || examplePdf) && (
+        {hasExample && (
           <div className="usecase-card-example">
             <span className="usecase-example-label">
-              {example ? <Headphones className="h-4 w-4" /> : <FileText className="h-4 w-4" />}
+              {exampleVideo ? <Video className="h-4 w-4" /> : example ? <Headphones className="h-4 w-4" /> : <FileText className="h-4 w-4" />}
               Exemple Judo
             </span>
+            {exampleVideo && (
+              <div className="usecase-video-wrapper">
+                <video
+                  controls
+                  preload="metadata"
+                  className="usecase-video-player"
+                >
+                  <source src={exampleVideo} type="video/mp4" />
+                  Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+              </div>
+            )}
             {example && (
               <div className="usecase-audio-wrapper">
                 <audio

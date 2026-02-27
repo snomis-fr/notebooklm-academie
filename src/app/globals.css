@@ -511,11 +511,15 @@
     min-width: 0;
   }
 
-  .usecase-card-example {
-    flex-shrink: 0;
-    width: 320px;
-    max-width: 100%;
-  }
+.usecase-card-example {
+  flex-shrink: 0;
+  width: 320px;
+  max-width: 100%;
+}
+
+.usecase-card-column:has(.usecase-video-wrapper) .usecase-card-example {
+  width: 420px;
+}
 }
 
 .usecase-card-column-content {
@@ -693,6 +697,19 @@
 .usecase-pdf-link:hover {
   background: rgba(124, 58, 237, 0.15);
   border-color: var(--color-accent);
+}
+
+.usecase-video-wrapper {
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.usecase-video-player {
+  width: 100%;
+  max-height: 240px;
+  display: block;
 }
 
 .usecase-card-example .usecase-pdf-link {

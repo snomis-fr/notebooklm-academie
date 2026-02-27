@@ -16,6 +16,8 @@ export interface UseCase {
   example?: string;
   /** Chemin vers l'exemple PDF (ex: /documents/xxx.pdf) */
   examplePdf?: string;
+  /** Chemin vers l'exemple vidéo (ex: /video/xxx.mp4) */
+  exampleVideo?: string;
 }
 
 export const USE_CASES: UseCase[] = [
@@ -51,6 +53,8 @@ export const USE_CASES: UseCase[] = [
     prompt: `Rédige un guide opérationnel étape par étape destiné aux DTN, médecins fédéraux et entraîneurs de France Judo, expliquant la procédure complète à suivre dès la notification d'un résultat d'analyse anormal (RAA) jusqu'à la décision disciplinaire finale. Inclure : délais réglementaires, acteurs impliqués, droits de l'athlète, obligations de la fédération, risques de procédure en cas d'erreur. Format : checklist + texte explicatif. Sources : règlement AMA, procédures AFLD, code WADA.`,
     diffusion:
       "Document interne confidentiel — DTN, médecins, direction technique",
+    exampleVideo: "/video/03_Guide_Antidopage_France_Judo.mp4",
+    examplePdf: "/documents/03_France_Judo_Anti-Doping_Protocol.pdf",
   },
   {
     id: 4,
@@ -115,6 +119,7 @@ export const USE_CASES: UseCase[] = [
     sousFormat: "Guide de Synthèse",
     prompt: `À partir des documents disponibles dans le carnet, réalise un benchmark des pratiques antidopage en comparant : le cadre imposé par le Code WADA universel, les spécificités du judo (IJF), et les pratiques d'autres sports de combat ou sports olympiques si les données sont présentes. Identifie : où le judo est en avance, où il peut progresser, quelles innovations d'autres fédérations méritent d'être adoptées. Format : synthèse narrative de 2 pages + tableau comparatif. Destination : réflexion stratégique IJF.`,
     diffusion: "Comité Exécutif IJF, CNOSF, direction technique nationale",
+    examplePdf: "/documents/09_Strategic_Judo_Integrity_Review.pdf",
   },
   {
     id: 10,
