@@ -754,55 +754,95 @@
 }
 
 /* ============================================================
-   PROMPTS DE STYLE — 15 directives, layout 2 colonnes
+   PROMPTS DE STYLE — 16 directives, vidéo en haut, prompts + images
    ============================================================ */
 
 .style-prompts-layout {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 0;
-  min-height: 60vh;
+  min-height: 40vh;
 }
 
-@media (max-width: 1024px) {
-  .style-prompts-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .style-prompts-media {
-    order: -1;
-    min-height: 280px;
-  }
+/* Layout empilé : vidéo au-dessus des prompts */
+.style-prompts-layout-stacked {
+  display: flex;
+  flex-direction: column;
 }
 
-.style-prompts-column {
-  border-right: 1px solid var(--color-border);
-  overflow-y: auto;
+.style-prompts-video-section {
+  padding: 2rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
-@media (max-width: 1024px) {
-  .style-prompts-column {
-    border-right: none;
-    border-top: 1px solid var(--color-border);
-  }
+.style-prompts-video-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.style-prompts-video-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--color-bg-alt);
+}
+
+.style-prompts-video-caption {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: center;
 }
 
 .style-prompts-list {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .style-prompt-card {
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem;
   transition: all var(--transition-base);
 }
 
 .style-prompt-card:hover {
   border-color: var(--color-border-hover);
+}
+
+.style-prompt-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .style-prompt-card-body {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .style-prompt-card:has(.style-prompt-card-results) .style-prompt-card-content,
+  .style-prompt-card:has(.style-prompt-card-result) .style-prompt-card-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .style-prompt-card-results {
+    flex-shrink: 0;
+    width: 50%;
+    max-width: 520px;
+  }
+
+  .style-prompt-card-results .style-prompt-card-result {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+.style-prompt-card-content {
+  flex: 1;
 }
 
 .style-prompt-card-header {
@@ -852,56 +892,42 @@
   line-height: 1.6;
 }
 
-.style-prompts-media {
-  background: var(--color-bg);
+.style-prompt-card-results {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  position: sticky;
-  top: 0;
-  align-self: start;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-@media (max-width: 1024px) {
-  .style-prompts-media {
-    position: static;
+@media (min-width: 768px) {
+  .style-prompt-card:has(.style-prompt-card-results) .style-prompt-card-results {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
-.style-prompts-media-placeholder {
-  width: 100%;
-  max-width: 340px;
-  aspect-ratio: 16 / 10;
-  border: 2px dashed var(--color-border);
+.style-prompt-card-result {
   border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.style-prompt-card-result-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--color-text-muted);
+  padding: 0.35rem 0.5rem;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.style-prompts-media-icon {
-  opacity: 0.4;
-}
-
-.style-prompts-media-text {
-  font-size: 0.9rem;
-  text-align: center;
-  color: var(--color-text-secondary);
-}
-
-.style-prompts-media-text span {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  font-style: italic;
-}
-
-.style-prompts-media-hint {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+.style-prompt-card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
 }
 
 /* CTA Cas d'usage — Homepage */
