@@ -43,6 +43,7 @@ export const config = {
       { label: "Cas d'usage", href: "/cas-usage" },
       { label: "100 Prompts", href: "/prompts" },
       { label: "Prompts de style", href: "/prompts-style" },
+      { label: "Comparatif plans", href: "/comparatif-plans" },
       { label: "Blog", href: "/blog" },
       { label: "À propos", href: "/a-propos" },
     ],
