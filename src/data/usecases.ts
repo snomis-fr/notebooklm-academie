@@ -1,245 +1,140 @@
 /**
- * Données des 20 cas d'usage NotebookLM pour fédérations sportives.
+ * Données des 11 cas d'usage NotebookLM — Carnet Antidopage.
  *
  * @module data/usecases
  */
 
-export type UseCaseCategory =
-  | "president"
-  | "equipe"
-  | "communication"
-  | "performance"
-  | "gouvernance";
-
 export interface UseCase {
   id: number;
-  categories: UseCaseCategory[];
   title: string;
-  description: string;
-  promptExample: string;
-  impact: "high" | "medium" | "low";
-  impactLabel: string;
+  objectif: string;
+  formatStudios: string;
+  sousFormat: string;
+  prompt: string;
+  diffusion: string;
+  /** Chemin vers l'exemple audio (ex: /audio/xxx.m4a) */
+  example?: string;
+  /** Chemin vers l'exemple PDF (ex: /documents/xxx.pdf) */
+  examplePdf?: string;
 }
 
 export const USE_CASES: UseCase[] = [
   {
     id: 1,
-    categories: ["president", "gouvernance"],
-    title: "Veille réglementaire IJF & WADA consolidée",
-    description:
-      "Charger tous les textes réglementaires IJF, WADA, CNOSF et Ministère des Sports. NotebookLM répond instantanément aux questions de conformité sans relire 400 pages.",
-    promptExample:
-      "Quelles obligations s'appliquent à la France pour le dopage en compétition internationale selon nos règlements ?",
-    impact: "high",
-    impactLabel: "Impact critique — Risque réputationnel & juridique",
+    title: "Ce que tout président de club doit savoir",
+    objectif:
+      "Former les 5 000 présidents de clubs sur leurs obligations antidopage en langage accessible, sans jargon juridique.",
+    formatStudios: "Résumé audio",
+    sousFormat: "Débat",
+    prompt: `Génère un script de podcast de 12 minutes entre deux intervenants (un expert réglementaire et un président de club novice) sur les obligations antidopage d'un club de judo affilié à France Judo. Couvre : les obligations de signalement, la responsabilité du président, les sanctions possibles, et les bonnes pratiques. Utilise un langage accessible, sans jargon juridique. Base-toi uniquement sur les documents du carnet.`,
+    diffusion: "Newsletter fédérale, canal présidents de clubs",
+    example: "/audio/01_Le_fardeau_antidopage_des_benevoles_du_judo.m4a",
   },
   {
     id: 2,
-    categories: ["president", "gouvernance"],
-    title: "Brief décisionnel avant Comité Exécutif IJF",
-    description:
-      "Importer l'ordre du jour, les PV précédents et les positions des fédérations partenaires. Générer un brief de 2 pages avec enjeux, rapports de force et angles d'intervention.",
-    promptExample:
-      "Synthétise les positions divergentes sur le règlement arbitrage et anticipe les points de blocage.",
-    impact: "high",
-    impactLabel: "Impact critique — Influence internationale",
+    title: "Athlète de haut niveau : tes droits et tes obligations",
+    objectif:
+      "Sensibiliser les judokas de haut niveau sur les whereabouts, les contrôles hors compétition et les médicaments autorisés.",
+    formatStudios: "Résumé audio",
+    sousFormat: "Débat",
+    prompt: `Génère un script de podcast de 10 minutes entre deux voix — un athlète de haut niveau en judo et un médecin fédéral — sur les obligations de localisation (whereabouts), les contrôles hors compétition, les médicaments autorisés et interdits, et les droits de l'athlète en cas de contrôle. Ton concret, direct, sans langue de bois. Sources : documents AMA/WADA et AFLD du carnet.`,
+    diffusion: "Pôles France, DTN, entraîneurs nationaux",
+    example: "/audio/02_Surveillance_athletes_et_donnees_personnelles.m4a",
   },
   {
     id: 3,
-    categories: ["president", "gouvernance"],
-    title: "Analyse comparative des rapports d'activité fédéraux",
-    description:
-      "Charger 3-5 ans de rapports d'activité France Judo + rapports de fédérations étrangères. Identifier les tendances structurelles, indicateurs en déclin et benchmarks inspirants.",
-    promptExample:
-      "Quels indicateurs de développement montrent une divergence significative entre 2021 et 2024 ?",
-    impact: "high",
-    impactLabel: "Impact élevé — Décisions structurelles",
+    title: "Que faire en cas de contrôle positif ?",
+    objectif:
+      "Fournir une procédure de crise claire et sourcée aux DTN, médecins fédéraux et entraîneurs dès la notification d'un résultat anormal.",
+    formatStudios: "Rapport",
+    sousFormat: "Créer le vôtre",
+    prompt: `Rédige un guide opérationnel étape par étape destiné aux DTN, médecins fédéraux et entraîneurs de France Judo, expliquant la procédure complète à suivre dès la notification d'un résultat d'analyse anormal (RAA) jusqu'à la décision disciplinaire finale. Inclure : délais réglementaires, acteurs impliqués, droits de l'athlète, obligations de la fédération, risques de procédure en cas d'erreur. Format : checklist + texte explicatif. Sources : règlement AMA, procédures AFLD, code WADA.`,
+    diffusion:
+      "Document interne confidentiel — DTN, médecins, direction technique",
   },
   {
     id: 4,
-    categories: ["president", "communication"],
-    title: "Préparation des auditions parlementaires & ministérielles",
-    description:
-      "Charger questions écrites précédentes, lois sport récentes, rapports ANS et positions du ministère. Simuler les questions hostiles et préparer des réponses en mode contradicteur.",
-    promptExample:
-      "Agis comme un rapporteur sceptique et challenge nos arguments sur la réforme du financement des clubs.",
-    impact: "high",
-    impactLabel: "Impact critique — Crédibilité institutionnelle",
+    title: "Matrice de conformité France Judo / WADA / AFLD",
+    objectif:
+      "Identifier les écarts de conformité entre les obligations WADA, le dispositif AFLD et les pratiques actuelles de France Judo.",
+    formatStudios: "Tableau de données + Carte mentale",
+    sousFormat: "—",
+    prompt: `Crée un tableau comparatif structuré avec 3 colonnes : (1) Obligation réglementaire, (2) Standard WADA/AMA requis, (3) Dispositif AFLD / France Judo correspondant. Identifie pour chaque ligne si la conformité est totale, partielle ou si un écart existe. Ajoute une colonne "Niveau de risque" (faible / moyen / élevé). Couvre les thèmes : contrôles, localisation, TUE, sanctions, formation, gestion des données. Destination : présentation CODIR.`,
+    diffusion: "CODIR France Judo, Conseil d'Administration",
+    examplePdf: "/documents/04_Standards_Internationaux_Violations_Code_Mondial_Antidopage.pdf",
   },
   {
     id: 5,
-    categories: ["equipe", "gouvernance"],
-    title: "Onboarding accéléré des nouveaux salariés et élus",
-    description:
-      "Créer un carnet avec statuts, règlements intérieurs, organigrammes et procédures RH. Un salarié arrivant répond lui-même à 80% de ses questions sans solliciter la DG.",
-    promptExample:
-      "Quelles sont les règles de validation budgétaire pour un responsable de commission régionale ?",
-    impact: "medium",
-    impactLabel: "Impact opérationnel — Gain de temps DG",
+    title: "Briefing IJF — Position française sur l'antidopage",
+    objectif:
+      "Disposer d'un document de positionnement institutionnel en anglais pour les interventions au Comité Exécutif de l'IJF.",
+    formatStudios: "Rapport + Présentation",
+    sousFormat: "Rapport d'Expertise Juridique",
+    prompt: `Rédige un document de positionnement de 2 pages en anglais, destiné à une intervention au Comité Exécutif de l'IJF, synthétisant la position de la France sur la politique antidopage dans le judo. Structure : (1) Cadre national français (AFLD, CNOSF, France Judo), (2) Points de convergence avec le Code WADA, (3) Points de vigilance ou de divergence, (4) Propositions ou recommandations pour le judo international. Ton : institutionnel, factuel, orienté influence. Sources : tous les documents du carnet.`,
+    diffusion: "Comité Exécutif IJF, délégations internationales",
+    examplePdf: "/documents/05_Rapport_Expertise_Juridique_Positionnement_France_Antidopage_Judo_International.pdf",
   },
   {
     id: 6,
-    categories: ["equipe"],
-    title: "Débrief automatisé des réunions de direction",
-    description:
-      "Importer le transcript audio ou le PV brut d'une réunion CODIR. Générer automatiquement le compte-rendu structuré, les décisions et les actions avec responsables.",
-    promptExample:
-      "Extrait toutes les décisions prises et les points d'action avec leur responsable et leur deadline.",
-    impact: "medium",
-    impactLabel: "Impact opérationnel — 2h économisées/réunion",
+    title: "FAQ antidopage pour les entraîneurs",
+    objectif:
+      "Donner aux entraîneurs un outil de référence rapide sur les questions terrain les plus fréquentes.",
+    formatStudios: "Infographie + Résumé audio + Quiz",
+    sousFormat: "Débat pour le résumé audio",
+    prompt: `Génère une FAQ de 20 questions-réponses fréquentes que se posent les entraîneurs de judo sur l'antidopage. Couvre : médicaments courants (ibuprofène, corticoïdes, bêtabloquants), suppléments alimentaires à risque, conduite à tenir avant un contrôle, que faire si un athlète oublie une localisation, différence entre compétition et hors compétition, rôle de l'entraîneur dans le dispositif. Format : Question en gras / Réponse courte et sourcée. Niveau de langage : praticien terrain.`,
+    diffusion: "Diffusion large clubs, formations de cadres, site France Judo",
+    examplePdf: "/documents/FAQ_Guide_Antidopage_pour_les_Entraineurs_de_Judo.pdf",
   },
   {
     id: 7,
-    categories: ["equipe", "performance"],
-    title: "Base de connaissances pour les DTN et entraîneurs",
-    description:
-      "Centraliser études scientifiques, règlements techniques IJF et analyses vidéo transcrites. Permettre aux coachs de questionner la littérature scientifique sans la lire intégralement.",
-    promptExample:
-      "Quelles données sur la récupération post-compétition sont validées pour les judokas de -66kg ?",
-    impact: "high",
-    impactLabel: "Impact élevé — Performance sportive",
+    title: "Module de formation e-learning antidopage",
+    objectif:
+      "Créer un module de formation complet intégrable dans la plateforme e-learning fédérale.",
+    formatStudios: "Rapport + Quiz + Fiches d'apprentissage",
+    sousFormat: "Guide d'étude",
+    prompt: `Rédige un script de formation structuré en 5 modules destiné à être intégré dans une plateforme e-learning fédérale. Module 1 : Comprendre l'antidopage (définitions, acteurs, enjeux). Module 2 : Les substances et méthodes interdites. Module 3 : Les obligations de l'athlète (localisation, TUE, contrôles). Module 4 : Le rôle de la fédération et des clubs. Module 5 : Procédures et sanctions. Pour chaque module : objectifs pédagogiques, contenu, quiz de 3 questions. Durée estimée : 20 minutes au total. Sources : documents AMA, AFLD, CNOSF du carnet.`,
+    diffusion: "Plateforme e-learning France Judo, formation obligatoire cadres",
   },
   {
     id: 8,
-    categories: ["equipe", "gouvernance"],
-    title: "FAQ vivante pour les 5 000 clubs affiliés",
-    description:
-      "Charger règlements d'affiliation, licences, assurances et procédures disciplinaires. Les ligues régionales disposent d'un assistant qui répond aux clubs 24h/24.",
-    promptExample:
-      "Un club peut-il organiser un stage interclubs payant sans déclaration préalable à la ligue ?",
-    impact: "medium",
-    impactLabel: "Impact opérationnel — Désengorgement juridique",
+    title: "Rapport de risque réputationnel",
+    objectif:
+      "Cartographier les 8 scénarios de crise antidopage susceptibles d'impacter France Judo sur le plan réputationnel.",
+    formatStudios: "Rapport",
+    sousFormat: "Créer le vôtre",
+    prompt: `Analyse les documents du carnet et identifie les 8 scénarios de risque réputationnel majeurs pour une fédération sportive comme France Judo. Pour chaque scénario, précise : (1) Description du scénario, (2) Probabilité (faible/moyenne/élevée), (3) Impact réputationnel (national / international), (4) Base réglementaire concernée (source exacte dans le carnet), (5) Mesures préventives recommandées. Exemples de scénarios : contrôle positif d'un médaillé olympique, manquement répété de localisation, défaillance de procédure fédérale, fuite de données médicales. Destination : Conseil d'Administration France Judo.`,
+    diffusion: "Conseil d'Administration, direction générale — document confidentiel",
+    examplePdf: "/documents/08_Integrite_au_Coeur_du_Tatami_Risques_Reputationnels_France_Judo.pdf",
   },
   {
     id: 9,
-    categories: ["communication", "president"],
-    title: "Génération du rapport annuel fédéral (Audio + Doc)",
-    description:
-      "Charger tous les bilans de direction. Générer un Audio Overview de 12 minutes pour diffuser auprès des élus régionaux, et un résumé exécutif structuré.",
-    promptExample:
-      "Génère un podcast de synthèse à destination des présidents de ligues qui n'ont pas lu le rapport complet.",
-    impact: "medium",
-    impactLabel: "Impact communication — Rayonnement interne",
+    title: "Comparatif international — Judo vs autres sports",
+    objectif:
+      "Benchmarker les pratiques antidopage du judo par rapport aux standards WADA et aux autres fédérations olympiques.",
+    formatStudios: "Rapport",
+    sousFormat: "Guide de Synthèse",
+    prompt: `À partir des documents disponibles dans le carnet, réalise un benchmark des pratiques antidopage en comparant : le cadre imposé par le Code WADA universel, les spécificités du judo (IJF), et les pratiques d'autres sports de combat ou sports olympiques si les données sont présentes. Identifie : où le judo est en avance, où il peut progresser, quelles innovations d'autres fédérations méritent d'être adoptées. Format : synthèse narrative de 2 pages + tableau comparatif. Destination : réflexion stratégique IJF.`,
+    diffusion: "Comité Exécutif IJF, CNOSF, direction technique nationale",
   },
   {
     id: 10,
-    categories: ["communication"],
-    title: "Veille médiatique et analyse de la couverture presse",
-    description:
-      "Importer revues de presse hebdomadaires et articles sur le judo. Identifier les narratifs dominants, sujets sensibles et angles d'amélioration de l'image fédérale.",
-    promptExample:
-      "Quels thèmes négatifs reviennent le plus dans la couverture du judo français depuis 6 mois ?",
-    impact: "high",
-    impactLabel: "Impact élevé — Gestion réputationnelle",
+    title: "Kit de communication de crise médias",
+    objectif:
+      "Préparer le service presse de France Judo à répondre rapidement et efficacement en cas de sujet antidopage sensible.",
+    formatStudios: "Rapport",
+    sousFormat: "Créer le vôtre",
+    prompt: `Rédige un kit de communication de crise antidopage destiné au service presse de France Judo. Il doit contenir : (1) Un communiqué de presse type en cas de résultat positif d'un athlète français, (2) Une fiche de 10 questions-réponses pour un porte-parole face aux journalistes, (3) Un rappel des procédures officielles que la fédération est tenue de respecter (pour démontrer sa conformité), (4) Les formulations à éviter absolument. Ton : transparent, factuel, protecteur de l'institution. Sources : règlements AFLD, WADA, CNOSF du carnet.`,
+    diffusion: "Service presse, direction générale, cellule communication — document confidentiel",
+    examplePdf: "/documents/10_Anti-Doping_Crisis_Kit.pdf",
   },
   {
     id: 11,
-    categories: ["communication", "equipe"],
-    title: "Production de contenus pédagogiques pour la formation",
-    description:
-      "Charger les référentiels de formation fédérale (JUDO1, JUDO2, DAN). Générer fiches de révision, quiz et mind maps pour les candidats aux brevets fédéraux.",
-    promptExample:
-      "Crée un quiz de 15 questions sur la biomécanique du tai-otoshi à partir du référentiel technique.",
-    impact: "medium",
-    impactLabel: "Impact formation — Scalabilité pédagogique",
-  },
-  {
-    id: 12,
-    categories: ["communication", "president"],
-    title: "Préparation des discours et prises de position publiques",
-    description:
-      "Charger l'ensemble des discours passés et engagements publics. Garantir la cohérence du message dans le temps et générer des drafts en accord avec la ligne fédérale.",
-    promptExample:
-      "Rédige une prise de position sur la réforme du sport scolaire en cohérence avec mes interventions des 3 dernières années.",
-    impact: "high",
-    impactLabel: "Impact critique — Cohérence & image",
-  },
-  {
-    id: 13,
-    categories: ["performance", "equipe"],
-    title: "Scouting technique des adversaires olympiques",
-    description:
-      "Importer rapports d'analyse vidéo, transcriptions de conférences techniques et statistiques de compétition. Créer des fiches adversaires interrogeables avant chaque Grand Slam.",
-    promptExample:
-      "Quelles sont les tendances de judo au sol de Daria Bilodid selon nos analyses des 12 derniers mois ?",
-    impact: "high",
-    impactLabel: "Impact critique — Résultats olympiques",
-  },
-  {
-    id: 14,
-    categories: ["performance"],
-    title: "Suivi médical et scientifique des athlètes de haut niveau",
-    description:
-      "Centraliser protocoles médicaux, études sur la prévention des blessures et bilans de préparation physique. Permettre au staff médical d'interroger la littérature ciblée.",
-    promptExample:
-      "Quelles interventions préventives sont documentées pour les lésions des ligaments croisés en judo féminin ?",
-    impact: "high",
-    impactLabel: "Impact critique — Santé athlètes",
-  },
-  {
-    id: 15,
-    categories: ["performance", "equipe"],
-    title: "Analyse des cycles olympiques et planification quadriennale",
-    description:
-      "Charger bilans Tokyo 2020 et Paris 2024, objectifs Los Angeles 2028 et plans de développement des catégories. Générer une carte mentale des priorités et des risques identifiés.",
-    promptExample:
-      "Quelles catégories présentent le plus grand écart entre notre niveau actuel et les médaillables de Los Angeles ?",
-    impact: "high",
-    impactLabel: "Impact stratégique — Cycle 2028",
-  },
-  {
-    id: 16,
-    categories: ["gouvernance"],
-    title: "Audit des procédures disciplinaires et jurisprudence interne",
-    description:
-      "Charger l'ensemble des décisions de la commission de discipline des 5 dernières années. Identifier jurisprudences, incohérences de traitement et risques d'appel devant le CNOSF.",
-    promptExample:
-      "Y a-t-il des décisions contradictoires sur des faits similaires entre 2020 et 2024 ?",
-    impact: "high",
-    impactLabel: "Impact critique — Risque juridique",
-  },
-  {
-    id: 17,
-    categories: ["gouvernance", "equipe"],
-    title: "Montage et suivi des dossiers de subvention ANS/Ministère",
-    description:
-      "Importer cahiers des charges des appels à projets, dossiers déposés et bilans d'exécution. Accélérer la rédaction de nouveaux dossiers en cohérence avec les engagements passés.",
-    promptExample:
-      "Rédige le chapitre 'cohérence avec les priorités ministérielles' en t'appuyant sur nos bilans 2022-2024.",
-    impact: "medium",
-    impactLabel: "Impact financier — Ressources fédérales",
-  },
-  {
-    id: 18,
-    categories: ["gouvernance", "performance"],
-    title: "Intelligence compétitive sur les fédérations rivales (IJF)",
-    description:
-      "Charger rapports publics, discours et positions des fédérations japonaise, coréenne et géorgienne. Cartographier leurs stratégies d'influence à l'IJF et anticiper leurs mouvements.",
-    promptExample:
-      "Quelles positions la fédération coréenne a-t-elle défendues sur le règlement golden score depuis 2022 ?",
-    impact: "high",
-    impactLabel: "Impact stratégique — Influence IJF",
-  },
-  {
-    id: 19,
-    categories: ["gouvernance", "communication"],
-    title: "Synthèse des enquêtes de satisfaction licenciés & clubs",
-    description:
-      "Importer verbatims, résultats d'enquêtes et remontées terrain des ligues. Générer une analyse thématique des irritants majeurs et attentes prioritaires pour le plan stratégique.",
-    promptExample:
-      "Quels sont les 5 principaux motifs d'insatisfaction mentionnés par les clubs de moins de 50 membres ?",
-    impact: "medium",
-    impactLabel: "Impact développement — Rétention membres",
-  },
-  {
-    id: 20,
-    categories: ["president", "gouvernance", "performance"],
-    title: "Cerveau externe du Président — carnet de bord stratégique",
-    description:
-      "Carnet unique et confidentiel : engagements publics, décisions de bureau, notes stratégiques, bilans d'entretiens clés. Garantit cohérence et mémoire institutionnelle sur 4 ans de mandat.",
-    promptExample:
-      "Qu'ai-je dit sur la question de l'arbitrage vidéo lors du Congrès 2023 et quelles décisions ont suivi ?",
-    impact: "high",
-    impactLabel: "Impact existentiel — Cohérence du mandat",
+    title: "Antidopage et Intelligence Artificielle",
+    objectif:
+      "Produire un contenu visionnaire positionnant France Judo et Ippon à l'intersection du sport et de l'IA, diffusable en externe.",
+    formatStudios: "Résumé audio",
+    sousFormat: "Débat",
+    prompt: `Génère un script de podcast prospectif de 15 minutes entre un dirigeant de fédération sportive et un expert en intelligence artificielle, sur le thème : "Comment l'IA va transformer l'antidopage dans les 5 prochaines années ?" Couvre : analyse prédictive des profils biologiques, automatisation de la gestion des whereabouts, IA et détection de nouvelles substances, enjeux éthiques et protection des données, opportunités pour les fédérations pionnières. Ancre le propos dans les standards actuels WADA/AFLD présents dans le carnet, puis projette vers l'avenir. Ton : visionnaire mais rigoureux.`,
+    diffusion: "Conférences sport-tech, IJF, CNOSF, LinkedIn, médias spécialisés",
   },
 ];

@@ -1,41 +1,57 @@
 "use client";
 
 /**
- * Contenu client : filtres + grille de cas d'usage.
+ * Contenu client : prérequis + liste en colonne des cas d'usage (style prompts).
  *
  * @module app/cas-usage/CasUsageContent
  */
 
-import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { FilterBar } from "@/components/cas-usage/FilterBar";
+import { ArrowRight, FileCheck } from "lucide-react";
 import { UseCaseCard } from "@/components/cas-usage/UseCaseCard";
 import { USE_CASES } from "@/data/usecases";
-import type { UseCaseCategory } from "@/data/usecases";
+
+const SOURCES_OFFICIELLES = ["AMA", "WADA", "CNOSF", "IJF", "FFJ", "AFLD"] as const;
 
 export function CasUsageContent() {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
-
-  const filteredCases =
-    activeFilter === "all"
-      ? USE_CASES
-      : USE_CASES.filter((uc) =>
-          uc.categories.includes(activeFilter as UseCaseCategory)
-        );
-
   return (
-    <>
-      <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+    <div className="cas-usage-layout">
+      {/* Prérequis — Carnet propre */}
+      <section className="cas-usage-prerequis">
+        <div className="prerequis-header">
+          <FileCheck className="prerequis-icon" aria-hidden />
+          <h2 className="prerequis-title">Prérequis : un carnet propre</h2>
+        </div>
+        <p className="prerequis-intro">
+          Avant d&apos;utiliser les cas ci-dessous, préparez un carnet
+          NotebookLM contenant <strong>uniquement des documents officiels</strong>.
+          Zéro document non officiel.
+        </p>
+        <div className="prerequis-sources">
+          <span className="prerequis-label">Sources autorisées :</span>
+          <ul className="prerequis-list">
+            {SOURCES_OFFICIELLES.map((source) => (
+              <li key={source}>
+                <kbd className="prerequis-kbd">{source}</kbd>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="prerequis-types">
+          Rapports, codes, plans, règlements, procédures — tous les documents
+          de référence antidopage issus de ces organismes.
+        </p>
+      </section>
 
-      <div className="usecases-grid">
-        {filteredCases.map((useCase) => (
+      {/* Liste des cas en colonne (comme prompts de style) */}
+      <div className="cas-usage-list">
+        {USE_CASES.map((useCase) => (
           <UseCaseCard key={useCase.id} useCase={useCase} />
         ))}
       </div>
 
-      <section className="border-t border-zinc-800 px-6 py-16">
-        <div className="mx-auto max-w-2xl text-center">
+      <section className="cas-usage-cta">
+        <div className="cas-usage-cta-inner">
           <Link
             href="/modules"
             className="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-transparent px-8 py-4 font-semibold text-white transition-all hover:border-violet-500/50 hover:text-violet-400"
@@ -45,6 +61,6 @@ export function CasUsageContent() {
           </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

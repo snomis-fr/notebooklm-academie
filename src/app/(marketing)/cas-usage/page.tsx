@@ -1,5 +1,5 @@
 /**
- * Page Cas d'Usage — 20 cas NotebookLM pour fédérations sportives.
+ * Page Cas d'Usage — Carnet Antidopage NotebookLM.
  *
  * @module app/cas-usage/page
  */
@@ -7,9 +7,9 @@
 import { CasUsageContent } from "./CasUsageContent";
 
 export const metadata = {
-  title: "Cas d'usage",
+  title: "Cas d'usage — Carnet Antidopage",
   description:
-    "20 cas d'usage concrets de NotebookLM pour les fédérations sportives : présidence, équipes, communication, performance, gouvernance.",
+    "11 cas d'usage concrets de NotebookLM pour le Carnet Antidopage : formation présidents, athlètes, procédures, conformité WADA/AFLD, communication de crise.",
 };
 
 export default function CasUsagePage() {
@@ -18,33 +18,29 @@ export default function CasUsagePage() {
       {/* PageHero */}
       <section className="page-hero">
         <span className="eyebrow">
-          ● Formation NotebookLM · Fédérations Sportives
+          ● Carnet Antidopage · France Judo
         </span>
         <h1>
-          20 Cas d&apos;Usage
+          Cas d&apos;usage
           <br />
           <span className="accent">NotebookLM</span>
         </h1>
         <p className="hero-sub">
-          Intelligence augmentée pour le Président, les Directions et les
-          Équipes d&apos;une Fédération Olympique
+          11 cas concrets pour exploiter le Carnet Antidopage : formation,
+          procédures, conformité, communication
         </p>
         <div className="hero-stats">
           <div className="stat">
-            <strong>20</strong>
+            <strong>11</strong>
             <span>Cas d&apos;usage</span>
           </div>
           <div className="stat">
-            <strong>5</strong>
-            <span>Domaines</span>
+            <strong>3</strong>
+            <span>Publics cibles</span>
           </div>
           <div className="stat">
-            <strong>600k</strong>
-            <span>Membres concernés</span>
-          </div>
-          <div className="stat">
-            <strong>0€</strong>
-            <span>Coût marginal</span>
+            <strong>WADA</strong>
+            <span>+ AFLD</span>
           </div>
         </div>
       </section>

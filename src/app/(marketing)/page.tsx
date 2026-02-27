@@ -97,7 +97,7 @@ export default function HomePage() {
             opérationnels avec prompts prêts à l&apos;emploi.
           </p>
           <Link href="/cas-usage" className="btn-accent">
-            Voir les 20 cas d&apos;usage →
+            Voir les 11 cas d&apos;usage →
           </Link>
         </div>
       </section>

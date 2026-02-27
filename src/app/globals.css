@@ -378,144 +378,325 @@
   color: #fff;
 }
 
-.usecases-grid {
-  padding: 3rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 1px;
-  background: var(--color-border);
+/* Prérequis cas d'usage */
+.cas-usage-prerequis {
+  margin: 2rem 2rem 0;
+  padding: 1.75rem 2rem;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 0;
+  max-width: 48rem;
 }
 
-@media (max-width: 640px) {
-  .usecases-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.usecases-grid > * {
-  background: var(--color-bg-card);
-}
-
-.usecase-card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  padding: 1.75rem;
-  transition: all var(--transition-slow);
+.cas-usage-prerequis .prerequis-header {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.usecase-card:hover {
-  border-color: var(--color-border-hover);
-  background: #2a1f3d;
-  transform: translateY(-2px);
+.cas-usage-prerequis .prerequis-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
 
-.usecase-card .card-header {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+.cas-usage-prerequis .prerequis-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
 }
 
-.usecase-card .card-number {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: rgba(124, 58, 237, 0.2);
-  line-height: 1;
-  min-width: 3rem;
-  transition: color var(--transition-base);
+.cas-usage-prerequis .prerequis-intro {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin: 0 0 1rem;
 }
 
-.usecase-card:hover .card-number {
-  color: rgba(124, 58, 237, 0.5);
+.cas-usage-prerequis .prerequis-sources {
+  margin-bottom: 1rem;
 }
 
-.usecase-card .card-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+.cas-usage-prerequis .prerequis-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  display: block;
   margin-bottom: 0.5rem;
 }
 
-.usecase-card .tag {
+.cas-usage-prerequis .prerequis-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cas-usage-prerequis .prerequis-kbd {
+  display: inline-block;
+  padding: 4px 10px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent-light);
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  border-radius: 4px;
+}
+
+.cas-usage-prerequis .prerequis-types {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Layout colonne (comme prompts de style) */
+.cas-usage-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.cas-usage-list {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cas-usage-cta {
+  padding: 2rem;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.cas-usage-cta-inner {
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+/* Carte cas d'usage — style colonne avec exemple audio */
+.usecase-card-column {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  transition: all var(--transition-base);
+}
+
+.usecase-card-column:hover {
+  border-color: var(--color-border-hover);
+}
+
+.usecase-card-column-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .usecase-card-column-body {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .usecase-card-column:has(.usecase-card-example) .usecase-card-column-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .usecase-card-example {
+    flex-shrink: 0;
+    width: 320px;
+    max-width: 100%;
+  }
+}
+
+.usecase-card-column-content {
+  flex: 1;
+}
+
+.usecase-card-column-header {
+  margin-bottom: 0.75rem;
+}
+
+.usecase-card-column-number {
+  font-size: 0.75rem;
+  font-family: ui-monospace, monospace;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.usecase-card-column-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0.25rem 0 0.5rem;
+  line-height: 1.3;
+}
+
+.usecase-card-column-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.usecase-tag {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 3px 8px;
-  border: 1px solid;
-  border-radius: 0;
-  font-weight: 500;
+  color: var(--color-accent-light);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  background: rgba(124, 58, 237, 0.15);
 }
 
-.usecase-card .card-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-text);
-  line-height: 1.4;
+.usecase-tag-sous {
+  color: rgba(245, 158, 11, 0.9);
+  border-color: rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.15);
 }
 
-.usecase-card .card-description {
-  font-size: 0.85rem;
+.usecase-card-objectif {
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
   line-height: 1.65;
-  flex: 1;
+  margin: 0 0 1rem;
 }
 
-.usecase-card .card-prompt {
+.usecase-card-objectif strong {
+  color: var(--color-text);
+}
+
+.usecase-card-prompt-block {
   background: rgba(255, 255, 255, 0.03);
   border-left: 2px solid var(--color-accent);
-  padding: 0.6rem 0.875rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1rem;
 }
 
-.usecase-card .prompt-label {
+.usecase-card-prompt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.usecase-prompt-label {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
 }
 
-.usecase-card .prompt-text {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-  font-style: italic;
-}
-
-.usecase-card .card-impact {
+.usecase-prompt-copy {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: auto;
-}
-
-.usecase-card .impact-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.usecase-card .impact-dot[data-impact="high"] {
-  background: var(--color-accent);
-  box-shadow: 0 0 6px rgba(124, 58, 237, 0.6);
-}
-
-.usecase-card .impact-dot[data-impact="medium"] {
-  background: #f59e0b;
-}
-
-.usecase-card .impact-dot[data-impact="low"] {
-  background: var(--color-bg-element);
-}
-
-.usecase-card .impact-text {
-  font-size: 0.7rem;
+  gap: 0.4rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.usecase-prompt-copy:hover {
+  color: var(--color-accent-light);
+  border-color: var(--color-accent);
+}
+
+.usecase-prompt-text {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  font-family: inherit;
+}
+
+.usecase-card-diffusion {
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.usecase-diffusion-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.usecase-diffusion-text {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Exemple audio */
+.usecase-card-example {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border);
+}
+
+.usecase-example-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  color: var(--color-accent-light);
+  margin-bottom: 0.75rem;
+}
+
+.usecase-audio-wrapper {
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.usecase-audio-player {
+  width: 100%;
+  height: 40px;
+}
+
+.usecase-audio-player::-webkit-media-controls-panel {
+  background: #ffffff;
+}
+
+.usecase-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent-light);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  transition: all 0.2s;
+}
+
+.usecase-pdf-link:hover {
+  background: rgba(124, 58, 237, 0.15);
+  border-color: var(--color-accent);
+}
+
+.usecase-card-example .usecase-pdf-link {
+  margin-top: 0.5rem;
 }
 
 /* ============================================================

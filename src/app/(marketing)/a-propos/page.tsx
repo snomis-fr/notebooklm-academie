@@ -28,7 +28,7 @@ const VALUES = [
     icon: Target,
     title: "Pensé pour les fédérations",
     description:
-      "Règlements, rapports, comités, clubs — chaque module illustre des cas d'usage du monde du sport.",
+      "Règlements, rapports, comités, clubs — le carnet antidopage illustre 11 cas d'usage concrets pour France Judo.",
   },
   {
     icon: Sparkles,

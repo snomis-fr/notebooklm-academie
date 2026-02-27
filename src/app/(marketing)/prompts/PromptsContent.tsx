@@ -74,7 +74,7 @@ export function PromptsContent() {
             href="/cas-usage"
             className="inline-flex items-center gap-2 rounded-xl border border-zinc-600 bg-transparent px-8 py-4 font-semibold text-white transition-all hover:border-violet-500/50 hover:text-violet-400"
           >
-            Découvrir les 20 cas d&apos;usage
+            Découvrir les 11 cas d&apos;usage
             <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
