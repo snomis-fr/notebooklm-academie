@@ -9,7 +9,7 @@ import { StylePromptsContent } from "./StylePromptsContent";
 export const metadata = {
   title: "Prompts de style",
   description:
-    "15 directives de style pour NotebookLM : identités visuelles distinctes — institutionnel, olympique, tech tricolore, minimalisme diplomatique...",
+    "16 directives de style pour NotebookLM : Équipe de France, institutionnel, olympique, tech tricolore, minimalisme diplomatique...",
 };
 
 export default function PromptsStylePage() {
@@ -20,7 +20,7 @@ export default function PromptsStylePage() {
           ● Formation NotebookLM · Studio
         </span>
         <h1>
-          15 Directives de Style
+          16 Directives de Style
           <br />
           <span className="accent">NotebookLM</span>
         </h1>

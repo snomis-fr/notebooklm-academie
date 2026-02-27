@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Contenu 2 colonnes : 15 prompts de style + zone photo/vidéo.
+ * Contenu 2 colonnes : 16 prompts de style + zone photo/vidéo.
  *
  * @module app/prompts-style/StylePromptsContent
  */
