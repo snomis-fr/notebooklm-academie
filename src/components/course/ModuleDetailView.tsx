@@ -335,33 +335,40 @@ export function ModuleDetailView({ module: mod, basePath }: ModuleDetailViewProp
         />
 
         {/* Mobile : Précédent / Suivant en bas du contenu */}
-        <nav
-          className="mt-8 flex items-center justify-between gap-4 border-t border-zinc-800 pt-6 lg:hidden"
-          aria-label="Navigation entre les parties"
-        >
-          {selectedPart.order > 1 ? (
-            <Link
-              href={`${basePath}?part=${mod.parts[selectedPart.order - 2].slug}`}
-              className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-sm font-medium text-zinc-300 transition-colors hover:border-violet-500/30 hover:text-white"
+        {(() => {
+          const prevPart = selectedPart.order > 1 ? mod.parts[selectedPart.order - 2] : null;
+          const nextPart =
+            selectedPart.order < mod.parts.length ? mod.parts[selectedPart.order] ?? null : null;
+          return (
+            <nav
+              className="mt-8 flex items-center justify-between gap-4 border-t border-zinc-800 pt-6 lg:hidden"
+              aria-label="Navigation entre les parties"
             >
-              <ChevronLeft className="h-4 w-4" />
-              Partie {selectedPart.order - 1}
-            </Link>
-          ) : (
-            <span />
-          )}
-          {selectedPart.order < mod.parts.length ? (
-            <Link
-              href={`${basePath}?part=${mod.parts[selectedPart.order].slug}`}
-              className="flex items-center gap-2 rounded-xl border border-violet-500/50 bg-violet-500/10 px-4 py-3 text-sm font-semibold text-violet-400 transition-colors hover:bg-violet-500/20"
-            >
-              Partie {selectedPart.order + 1}
-              <ChevronRight className="h-4 w-4" />
-            </Link>
-          ) : (
-            <span />
-          )}
-        </nav>
+              {prevPart ? (
+                <Link
+                  href={`${basePath}?part=${prevPart.slug}`}
+                  className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-sm font-medium text-zinc-300 transition-colors hover:border-violet-500/30 hover:text-white"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  Partie {selectedPart.order - 1}
+                </Link>
+              ) : (
+                <span />
+              )}
+              {nextPart ? (
+                <Link
+                  href={`${basePath}?part=${nextPart.slug}`}
+                  className="flex items-center gap-2 rounded-xl border border-violet-500/50 bg-violet-500/10 px-4 py-3 text-sm font-semibold text-violet-400 transition-colors hover:bg-violet-500/20"
+                >
+                  Partie {selectedPart.order + 1}
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
+              ) : (
+                <span />
+              )}
+            </nav>
+          );
+        })()}
       </main>
     </div>
   );
