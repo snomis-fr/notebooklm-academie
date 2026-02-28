@@ -87,11 +87,13 @@ export const STYLE_PROMPTS: StylePrompt[] = [
     id: 12,
     title: "Corporate Atlantique",
     prompt: `Palette inspirée de l'Atlantique : bleu ciel (#5B9BD5), bleu profond (#1A3A6B), blanc glacé, touche de vert émeraude (#1ABC9C) pour les points positifs. Fond légèrement texturé. Carré, professionnel, international — le style d'un rapport BCG.`,
+    image: "/images/style-prompts/infographie-performance-federale.png",
   },
   {
     id: 13,
     title: "Alerte Stratégique",
     prompt: `Quand le contenu est critique : fond blanc, header rouge frappant (#CC0000) avec texte blanc, corps sur fond jaune très pâle (#FFFDE7), accents orange vif. Encadrés d'alerte en rouge. Le style d'une note de risque envoyée en urgence.`,
+    image: "/images/style-prompts/alerte-strategique.png",
   },
   {
     id: 14,
@@ -101,12 +103,14 @@ export const STYLE_PROMPTS: StylePrompt[] = [
   },
   {
     id: 15,
-    title: "Futur Franco-Tech",
+    title: "Futur Franco-Tech — Vision Prospective",
     prompt: `Vision prospective : fond blanc avec gradient subtil bleu-violet en arrière-plan, titres en bleu électrique (#0055A4), données en violet (#8E44AD), indicateurs en rouge vif. Typo moderne, espacement généreux. Le style d'un rapport "France 2030".`,
+    image: "/images/style-prompts/futur-franco-tech-vision-prospective.png",
   },
   {
     id: 16,
-    title: "Terrain & Action",
+    title: "Terrain & Action — Débriefing Opérationnel",
     prompt: `Style opérationnel, terrain : fond blanc, blocs d'actions en rouge (#ED2939) bien visibles, statuts en vert/orange/rouge, titres en bleu marine. Pas de fioritures. Chaque ligne doit répondre à "qui fait quoi avant quand". Le format d'un debriefing d'après-compétition.`,
+    image: "/images/style-prompts/terrain-et-action-debriefing.png",
   },
 ];
