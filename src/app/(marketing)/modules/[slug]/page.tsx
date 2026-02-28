@@ -11,7 +11,6 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { getModuleBySlug, MODULES } from "@/config/modules";
 import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import { ModuleDetailView } from "@/components/course/ModuleDetailView";
 
 interface PageProps {
@@ -45,55 +44,50 @@ export default async function ModuleDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-zinc-950">
-      {/* En-tête */}
-      <section className="relative overflow-hidden border-b border-zinc-800 px-6 py-12 md:py-16">
+      {/* En-tête — compact sur mobile */}
+      <section className="relative overflow-hidden border-b border-zinc-800 px-4 py-6 md:px-6 md:py-12">
         <div className="hero-gradient-overlay" aria-hidden />
         <div className="relative z-10 mx-auto max-w-7xl">
           <Link
             href="/modules"
-            className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition-colors hover:text-violet-400"
+            className="mb-3 inline-flex items-center gap-2 text-xs font-medium text-zinc-400 transition-colors hover:text-violet-400 md:mb-6 md:text-sm"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-3.5 w-3.5 md:h-4 md:w-4" />
             Retour aux modules
           </Link>
 
+          <h1 className="font-display text-lg font-extrabold leading-tight text-white md:text-3xl md:uppercase lg:text-4xl">
+            <span className="text-zinc-500 md:text-white">Module {moduleData.order}</span>
+            <span className="block text-violet-300 md:inline md:ml-2 md:text-white">
+              {moduleData.title}
+            </span>
+          </h1>
+
           {moduleData.objectif && (
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-zinc-500">
-              Objectif : {moduleData.objectif}
+            <p className="mt-1.5 text-xs leading-snug text-zinc-500 md:mt-4 md:text-xs md:font-semibold md:uppercase md:tracking-widest">
+              <span className="hidden md:inline">Objectif : </span>
+              {moduleData.objectif}
             </p>
           )}
 
-          <h1 className="font-display text-3xl font-extrabold uppercase leading-tight text-white md:text-4xl">
-            Module {moduleData.order} : {moduleData.title} ({moduleData.subtitle})
-          </h1>
-
-          <div className="mt-6 flex flex-wrap items-center gap-4">
-            <span className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-1.5 text-sm font-medium text-zinc-300">
+          <div className="mt-3 flex flex-wrap items-center gap-2 md:mt-6 md:gap-4">
+            <span className="rounded-full border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs font-medium text-zinc-300 md:px-4 md:py-1.5 md:text-sm">
               {moduleData.duration}
             </span>
-            <span className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-1.5 text-sm font-medium text-zinc-300">
+            <span className="rounded-full border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs font-medium text-zinc-300 md:px-4 md:py-1.5 md:text-sm">
               {moduleData.level}
             </span>
             {moduleData.isFree && (
-              <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-sm font-semibold text-emerald-400">
+              <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 text-xs font-semibold text-emerald-400 md:px-4 md:py-1.5 md:text-sm">
                 Gratuit
               </span>
             )}
           </div>
-          {moduleData.isFree && (
-            <div className="mt-6">
-              <Link href={`/cours/${moduleData.slug}`}>
-                <Button variant="accent" size="lg">
-                  Commencer le module
-                </Button>
-              </Link>
-            </div>
-          )}
         </div>
       </section>
 
       {/* Sidebar + Contenu (vidéo + activités par partie) */}
-      <section className="px-6 py-12 md:py-16">
+      <section className="px-4 py-6 md:px-6 md:py-12">
         <div className="mx-auto max-w-7xl">
           <Suspense
             fallback={

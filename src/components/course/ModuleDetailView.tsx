@@ -11,7 +11,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { FlaskConical } from "lucide-react";
+import { FlaskConical, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Module, ModulePart } from "@/types";
 
 const MODULE_BADGE_STYLES: Record<string, { badge: string; icon: string }> = {
@@ -258,35 +258,69 @@ export function ModuleDetailView({ module: mod, basePath }: ModuleDetailViewProp
 
   if (!selectedPart) return null;
 
+  const PartLink = ({
+    part,
+    isActive,
+    compact = false,
+  }: {
+    part: (typeof mod.parts)[0];
+    isActive: boolean;
+    compact?: boolean;
+  }) => (
+    <Link
+      href={`${basePath}?part=${part.slug}`}
+      title={compact ? part.title : undefined}
+      className={`rounded-xl px-4 py-2.5 text-left transition-colors ${
+        compact ? "min-w-[100px] max-w-[160px] shrink-0" : "block"
+      } ${
+        isActive
+          ? "border border-violet-500/50 bg-violet-500/10 text-white"
+          : "border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
+      }`}
+    >
+      <span className="font-display text-sm font-bold">{part.order}</span>
+      <span className={`${compact ? "ml-1.5 block truncate text-xs" : "ml-2 text-sm"}`}>
+        {part.title}
+      </span>
+    </Link>
+  );
+
   return (
     <div className="flex flex-col lg:flex-row lg:gap-12">
-      {/* Sidebar gauche — les 3 parties */}
-      <aside className="shrink-0 lg:w-72">
+      {/* Mobile : nav parties sticky horizontale — toujours visible au scroll */}
+      <nav
+        className="sticky top-16 z-40 -mx-4 mb-4 overflow-x-auto border-b border-zinc-800 bg-zinc-950/95 px-4 py-3 backdrop-blur-sm lg:hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        aria-label="Navigation des parties"
+      >
+        <div className="flex gap-2">
+          {mod.parts.map((part) => (
+            <PartLink
+              key={part.id}
+              part={part}
+              isActive={part.id === selectedPart.id}
+              compact
+            />
+          ))}
+        </div>
+      </nav>
+
+      {/* Desktop : sidebar gauche — les 3 parties */}
+      <aside className="hidden shrink-0 lg:block lg:w-72">
         <nav className="sticky top-24 space-y-1">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
             Parties
           </p>
-          {mod.parts.map((part) => {
-            const isActive = part.id === selectedPart.id;
-            return (
-              <Link
-                key={part.id}
-                href={`${basePath}?part=${part.slug}`}
-                className={`block rounded-xl px-4 py-3 text-left transition-colors ${
-                  isActive
-                    ? "border border-violet-500/50 bg-violet-500/10 text-white"
-                    : "border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
-                }`}
-              >
-                <span className="font-display text-sm font-bold">{part.order}</span>
-                <span className="ml-2 text-sm">{part.title}</span>
-              </Link>
-            );
-          })}
+          {mod.parts.map((part) => (
+            <PartLink
+              key={part.id}
+              part={part}
+              isActive={part.id === selectedPart.id}
+            />
+          ))}
         </nav>
       </aside>
 
-      {/* Contenu droit — vidéo + activités */}
+      {/* Contenu — vidéo + activités */}
       <main className="min-w-0 flex-1 py-6 lg:py-0">
         <PartContent
           part={selectedPart}
@@ -299,6 +333,35 @@ export function ModuleDetailView({ module: mod, basePath }: ModuleDetailViewProp
           closingMessageTitle={mod.closingMessageTitle}
           closingMessageText={mod.closingMessageText}
         />
+
+        {/* Mobile : Précédent / Suivant en bas du contenu */}
+        <nav
+          className="mt-8 flex items-center justify-between gap-4 border-t border-zinc-800 pt-6 lg:hidden"
+          aria-label="Navigation entre les parties"
+        >
+          {selectedPart.order > 1 ? (
+            <Link
+              href={`${basePath}?part=${mod.parts[selectedPart.order - 2].slug}`}
+              className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-sm font-medium text-zinc-300 transition-colors hover:border-violet-500/30 hover:text-white"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Partie {selectedPart.order - 1}
+            </Link>
+          ) : (
+            <span />
+          )}
+          {selectedPart.order < mod.parts.length ? (
+            <Link
+              href={`${basePath}?part=${mod.parts[selectedPart.order].slug}`}
+              className="flex items-center gap-2 rounded-xl border border-violet-500/50 bg-violet-500/10 px-4 py-3 text-sm font-semibold text-violet-400 transition-colors hover:bg-violet-500/20"
+            >
+              Partie {selectedPart.order + 1}
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          ) : (
+            <span />
+          )}
+        </nav>
       </main>
     </div>
   );
